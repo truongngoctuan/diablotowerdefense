@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<project name="NAnt Examples" default="switcher">
+	<!-- dung default.target de chuyen den bat cu target nao minh muon -->
+	<!-- http://blog.tech-cats.com/2008/07/rename-all-files-in-directory-with-nant.html -->
+	<target name="switcher">
+		<property name="target.default" value="build" />
+		<call target="${target.default}"/>
+    </target>
+	
+     <target name="build">
+	<foreach item="File" in="D:\empire\resource\border" property="fileName">  
+		<exec program="c:\called.bat" timeout="50000">
+		<arg value="${path::get-full-path(fileName)}" />
+		</exec>
+<!-- 		<exec program="c:\slpcnvt\SLPCNVT.EXE">
+			<arg value="/x" />
+			<arg value="${path::get-full-path(fileName)}" />
+			<arg value="/n" />
+			<arg value="/o" />
+			<arg value="c:\aaa" />
+      </exec> -->
+
+    <!-- <if test="${string::to-lower(path::get-extension(fileName)) == '.sql'}">  
+     <move file="${fileName}" tofile="${path::combine(path::get-directory-name(fileName), path::get-file-name-without-extension(fileName) + '.txt')}" />  
+    </if>   -->
+   </foreach> 
+    </target>
+</project>

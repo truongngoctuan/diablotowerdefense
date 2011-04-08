@@ -1,0 +1,8 @@
+MERGE_DCC Freeware v. 1.8, by Paul SIRAMY, 24 May 2007
+DCC Decoder made with the precious help of Bilian BELCHEV
+=========================================================
+COF file               = MPDTHTH
+# directions           = 8
+# frames per direction = 25
+# layers               = 8
+Layers list            = LA RA S1 S2 S3 S5 S6 TR

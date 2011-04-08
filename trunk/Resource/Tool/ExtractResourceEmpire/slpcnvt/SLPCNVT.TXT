@@ -1,0 +1,265 @@
+ SSSSSS  L        PPPPPP    CCCCC   NN    N  V     V  TTTTTTT
+S        L        P     P  C     C  N N   N  V     V     T
+ SSSSS   L        PPPPPP   C        N  N  N   V   V      T
+      S  L        P        C     C  N   N N    V V       T
+SSSSSS   LLLLLLL  P         CCCCC   N    NN     V        T
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-
+
+SLPCNVT Version 1.0 - Age of Empires Graphic Conversion Utility
+Copyright (C) 1998 Joseph Knight. All rights reserved.
+Written by Joseph Knight, knight@sad50.k12.me.us
+_______________________________________________________
+ Disclaimers
+_______________________________________________________
+This program is freeware, but I will accept donations,
+   E-Mail me for more info.
+This software is provided as is, with no warranty of any kind.
+I cannot be held liable for any damages caused by this software.
+Use at your own risk.
+Age of Empires a game by Microsoft & Ensemble Studios.
+All trademarks are property of their respective owners.
+
+_______________________________________________________
+ Contents
+_______________________________________________________
+ Introduction
+ Installation
+ Usage
+ How to make your own
+ Bugs & Limitations
+ Feedback & Support
+ Credits
+
+_______________________________________________________
+ Introduction
+_______________________________________________________
+     SLPCNVT was created by me over the past few months to account for
+the proprietary format of SLP files, the most commonly used graphic file
+for Age of Empires.  What first led me to writing the program was the
+fine utility created by Stoyan Ratchev, DRSBUILD, along with the SLP file
+list created by Brian Yip.  Looking at his list, I realized that many
+of the images that really had to be there somewhere, were missing and I
+couldn't seem to find them, which led me to examine the SLP files more
+closely.  Finally, after many road blocks, I cracked the commands used to
+create the images and wrote this utility to convert SLPs to BMPs and back.
+
+_______________________________________________________
+ Installation
+_______________________________________________________
+It works just like DRSBUILD. The original package is a ZIP archive called
+SLPCNVT.ZIP, which contains the following files:
+
+SLPCNVT.EXE - executable
+SLPCNVT.TXT - the file you are currently reading
+GBLANK.BMP - Blank 1 pixel file for padding (see bugs)
+SBLANK.BMP - Blank 1 pixel file for padding (see bugs)
+CBLANK.TXT - Center for Blank files (see bugs)
+
+After unzipping the archive, copy the executable into your PATH, so you
+can use it from any directory.
+
+_______________________________________________________
+ Usage
+_______________________________________________________
+Usage: SLPCNVT  {/X | /B | /Ex | /L | /?} <slp_file>[.SLP]
+                <file(s)...> [/O<out_dir>] [/S] [/Px] [/N]
+Commands:
+  /X  Extract all images in <slp_file>
+  /B  Build <slp_file> from <file(s)...>
+  /Ex Extract a specific image by number (x) in <slp_file>
+  /L  List specs for files in <slp_file>
+  /?  Print the help screen
+Switches:
+  /O  Extract files to <out_dir> folder, default is current folder
+  /S  Silent mode
+  /Px Select a player number for marking colors (0-8) (default is 1)
+  /N  No control files (won't create S*.BMPs and C*.TXTs)
+
+All of the commands work with one SLP file only, no wildcards in <slp_file>.
+However you may use wildcards in <file(s)...> when building an SLP file.
+Ok, first I'll describe all the switches and then all the commands:
+
+Switches:
+  /O  Extract files to <out_dir> folder, default is current folder
+
+      When extracting images from an SLP or building an SLP from various
+      images, you can use this switch to send the newly created files to
+      a specific directory.
+      IE:  SLPCNVT /X GRA00657.SLP /OC:\TEMP
+      This will extract all images from graphic 657 and put them in C:\TEMP
+
+  /S  Silent mode
+
+      SLPCNVT will not display any status information on the screen while
+      it's working.  Except for any errors you might encounter.
+
+  /Px Select a player number for marking colors (0-8) (default is 1)
+
+      One of the interesting features of SLPs is that they include code to
+      specify which player number the graphic is being displayed under.
+      For instance, the villager has colors that change depending on which
+      player number owns them.  That is controlled by special codes in the
+      SLP file.  When you extract an image, you may want to choose another
+      player then the default (Dark Blue player 1) and you can do that with
+      this switch.
+      IE:  SLPCNVT /X GRA00657.SLP /P2
+      This will extract all images from SLP 657 and draw them as though
+      the were owned by player 2.
+
+  /N  No control files (won't create S*.BMPs and C*.TXTs)
+
+      To compensate for many of the features of SLPs that BMPs would not
+      support, like transparency, shadows, and user colors, I found that
+      I needed to create 2 BMPs and a text file.  One BMP will look just
+      like the unit in the game, using black (color 0) for transparent
+      areas.  The other BMP is used as a control file for reintegration
+      of the SLP file later, (More on the specs of this later), and the
+      text file is used to specify the center of the image.  If you don't
+      want to put the SLP back together later, so you don't need those
+      extra files, then the /N switch will prevent the creation of the
+      two extra files.
+      IE:  SLPCNVT /X GRA00033.SLP /N
+      This will extract all images from SLP 33 without creating control files.
+
+Commands:
+  /X  Extract all images in <slp_file>
+
+      As you probably figured out by now, this command will extract all
+      images found in the SLP file specified.
+      IE:  SLPCNVT /X GRA00002.SLP
+      This will extract all the images from SLP 2.
+
+  /B  Build <slp_file> from <file(s)...>
+
+      This will build an SLP file from the files specified in <file(s)...>
+      It will place them in the order specified, or, if you use wildcards,
+      the order they happen to be on the HDD.  Another options is to specify
+      a special text file that contains a list of images to be included.
+      To do this, create text file with the path and image names listed then
+      at the command prompt use a @ in front of the text file's name.
+      You need to specify the G*.BMPs (the graphics that look like the real
+      characters) and there needs to be a S*.BMP and a C*.TXT in the same
+      directory specified for the G*.BMP.
+      IE:  SLPCNVT /B GRA00000.SLP C:\TEMP\G0100657.BMP C:\TEMP\G0200657.BMP
+      This would create GRA00000.SLP out of the two specified images.
+      The images would appear in the SLP in the order they are listed in the
+      command line.
+      IE2:  Create a text file as follows:
+      C:\TEMP\G0100657.BMP
+      C:\TEMP\G0200657.BMP
+      C:\TEMP\G0300657.BMP
+      C:\TEMP\G0400657.BMP
+      C:\TEMP\G0500657.BMP
+      C:\TEMP\G0600657.BMP
+
+      and save it as FILES.TXT
+      then run the command SLPCNVT /B GRA00000.SLP @FILES.TXT
+      This would create GRA00000.SLP out of the specified files.
+
+  /Ex Extract a specific image by number (x) in <slp_file>
+
+      This command extract the data for just one image from the SLP file.
+      IE:  SLPCNVT /E5 GRA00657.SLP
+      This would extract the fifth image from SLP 657.
+
+  /L  List specs for files in <slp_file>
+
+      This command prints a list (on your screen) of the X and Y size, as
+      well as the X and Y centers of the images in the SLP file.
+
+  /?  Prints the help screen
+
+      If I have to explain this one any more than this, then please don't
+      use my utility ;-)
+
+NOTE: If your files have long names then you need to use the 8.3 form of them.
+
+_______________________________________________________
+ How to make your own
+_______________________________________________________
+     Ok, what good would this utility be if you could make your own images?
+So here I'll explain what the 3 files are used for and how to create one.
+     The easiest file is the C*.TXT, this specifies where the center of the
+image will be based on the upper left corner being 0,0.  For instance, the
+fire burning has certain images which are higher (as the flames shoot up).
+If the program placed the images based on the upper left corner then the
+bottom of the flame would jump all around in a really funny way.  So the
+Center text file (C*.TXT) is critical to the image info.  It's very easy
+to change as well, simply enter the X and Y coordinate centers.  These can
+even be negative numbers because some images, like certain units dying,
+move way off where the original center was.
+     The text file looks just like this:
+     10 , 34
+     And you can create your own (or edit the one that's created for you)
+just as easily, now for the harder parts.
+     The G*.BMP is a standard BMP, the only catch in creating your own is
+that you need to use the same palette or when you load the files into AOE
+it will look very odd.  The easiest way to do this is to simply load one of
+the extracted BMPs and edit it.  Basically make this file exactly as you
+want the user's version to look as a player 1 unit (in other words, use
+the Dark Blue colors 16-25 for unit specs) and use color 0 for transparent
+sections.  This isn't really important but it will make it easier to create
+the matching S*.BMP
+     The S*.BMP is also a standard BMP, however getting this file right is
+much more important.  Both BMPs must be exactly the same size, because all
+pixels between the two files need to correspond to each other.  All parts
+that will be transparent in the final SLP must be color 0.  Any parts that
+you want to be displayed exactly as they are in the G*.BMP must be set to
+color 255 in this BMP.  There is an interesting function that actually makes
+the colors underneath it darker when drawn (basically a shadow).  Any pixels
+that you want to appear this way in the final SLP must be color 120,
+preferably in both images (because any pixels in the G*.BMP will be
+overridden the same way as they are with transparency).
+     Finally, any colors that you will want to appear in the final SLP as
+user specific colors, need to be between/including colors 16-25. These will
+be converted exactly as shown into the SLP.
+     Ok, I hope that was clear enough, but if it wasn't, I recommend just
+extracting a few images to see what the program gives for output and then
+copy that.
+
+_______________________________________________________
+ Bugs & Limitations
+_______________________________________________________
+     No bugs I know of, as for limitations, you can only use a maximum of
+300 files to create the SLP.  There is a maximum of 100 command line
+parameters, but if you can get more that that on a command line, I'll be
+very impressed!.  The program cannot use long filenames.  Other than that,
+there's no problems I know of.  If there are any errors in the created
+SLPs then Age of Empires will probably lock up at worst.
+(I should know, I tried enough bad ones before I had the code straight.)
+Oh also, if you try to recreate an SLP that originally had some empty images,
+(The program will say, "No image number x") then when you re-create it you'll
+need to include some blank (1 transparent pixel) BMPs to pad the data.
+I've included the file GBLANK.BMP and it's counterparts just for this
+purpose.
+
+_______________________________________________________
+ Feedback & Support
+_______________________________________________________
+     Well, I've checked and rechecked the functions in this program, but
+because of it's complexity, I can't ensure that every possibility will work.
+But most of it should work out fine.  If you have any trouble try a few
+different times a few different ways, but if you run into a real problem,
+please feel free to E-Mail me about it.  Make sure you backup your original
+DRS files before playing around with changing the SLPs so that if things
+really get messed up you can just restore from your originals.
+     I can't be sure how soon I'll be able to respond to your E-Mail, but
+I'll do the best I can.
+
+_______________________________________________________
+ Credits
+_______________________________________________________
+I would like to thank the following people for their fine
+utilities, files, support, and encouragement:
+
+Stoyan Ratchev, for creating DRSBUILD and Brian Yip, for his list
+of the SLP files which encouraged me to start in the first place.
+
+My wife, for consenting to be a computer widow for the past few months,
+and a friend of mine who kept listening to my complaining that the
+latest algorithms weren't working.
+
+And, as always, Microsoft & Ensemble Studios for creating Age of Empires!
+______________________________________________________
+Copyright (C) 1998 Joseph Knight. All rights reserved.
+

@@ -1,0 +1,5 @@
+D:\Temp\testProj\DiabloExRes\DiabloExRes\obj\Debug\ResolveAssemblyReference.cache
+D:\Temp\testProj\DiabloExRes\DiabloExRes\bin\Debug\DiabloExRes.exe
+D:\Temp\testProj\DiabloExRes\DiabloExRes\bin\Debug\DiabloExRes.pdb
+D:\Temp\testProj\DiabloExRes\DiabloExRes\obj\Debug\DiabloExRes.exe
+D:\Temp\testProj\DiabloExRes\DiabloExRes\obj\Debug\DiabloExRes.pdb

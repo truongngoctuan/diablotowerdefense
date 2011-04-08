@@ -1,0 +1,9 @@
+E:\My Documents\Visual Studio 2008\Projects\GameDev\TowerDefense\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Temp\testProj\TowerDefense\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Snake8xO2\Desktop\TowerDefense002\TowerDefense\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Snake8xO2\Desktop\TowerDefense\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\truoc khi cap nhat map\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Snake8xO2\Desktop\0712281_0712494_CapNhatMap\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Tuan - tai lieu\0712281_0712494_6_7_noon\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Snake8xO2\Desktop\0712281_0712494_6_7_0724\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\0712494_0712281\Resource\0712281_0712494\TowerDefense\Content\obj\x86\Debug\ResolveAssemblyReference.cache

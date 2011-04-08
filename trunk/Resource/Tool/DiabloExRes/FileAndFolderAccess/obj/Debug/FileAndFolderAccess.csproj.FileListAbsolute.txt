@@ -1,0 +1,5 @@
+D:\Temp\testProj\DiabloExRes\FileAndFolderAccess\bin\Debug\FileAndFolderAccess.dll
+D:\Temp\testProj\DiabloExRes\FileAndFolderAccess\bin\Debug\FileAndFolderAccess.pdb
+D:\Temp\testProj\DiabloExRes\FileAndFolderAccess\obj\Debug\ResolveAssemblyReference.cache
+D:\Temp\testProj\DiabloExRes\FileAndFolderAccess\obj\Debug\FileAndFolderAccess.dll
+D:\Temp\testProj\DiabloExRes\FileAndFolderAccess\obj\Debug\FileAndFolderAccess.pdb

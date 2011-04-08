@@ -1,0 +1,7 @@
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\bin\Debug\ConvertWidthHeightMul4.exe
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\bin\Debug\ConvertWidthHeightMul4.pdb
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\bin\Debug\FileAndFolderAccess.dll
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\bin\Debug\FileAndFolderAccess.pdb
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\obj\Debug\ResolveAssemblyReference.cache
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\obj\Debug\ConvertWidthHeightMul4.exe
+D:\Temp\testProj\DiabloExRes\ConvertWidthHeightMul4\obj\Debug\ConvertWidthHeightMul4.pdb

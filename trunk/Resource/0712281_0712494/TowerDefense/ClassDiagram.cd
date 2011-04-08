@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TowerDefense.Game1" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAAAAAAAAgABAAAAAAAAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.GlobalVar" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgAAAIAEBAAAACAAAQAQAAABCAAAAAAAABAAAAUA=</HashCode>
+      <FileName>GlobalVar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.MenuItem" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQBgAAIABgAAgAAAAAAIAQAAACAgChAACAAAAAAACA=</HashCode>
+      <FileName>Menu\MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.MyAnimatedMenu" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIQhQBAAAAAQEwAAACAABBIAAAAIAgCAAAAQBAAAEAI=</HashCode>
+      <FileName>Menu\MyAnimatedMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.ResourceManager" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAIAAAAAgAAAAAAQAAAAAAAAAAAAAAAAAEEAIA=</HashCode>
+      <FileName>ResourceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Stage">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAhAAAAAAAAAAAAAAAABAAUgAAAAAAAA=</HashCode>
+      <FileName>Stages\Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Unit">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAgAAAEABA=</HashCode>
+      <FileName>Units\Abstract Units\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Map">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEwAIAAAAAAAAhAAAAAQAAEAAAAAACAAAABAAAIBABQ=</HashCode>
+      <FileName>Maps\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.FixedUnit">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\FixedUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.SpriteUnit">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\SpriteUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Decorator">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAIAgAAAAAAABAAAAAAAQAAAAAAAAACABA=</HashCode>
+      <FileName>Units\Real Units\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.ActiveUnit">
+    <Position X="12.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\ActiveUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.InactiveUnit">
+    <Position X="13.5" Y="2" Width="1.5" />
+    <InheritanceLine Type="TowerDefense.SpriteUnit" FixedFromPoint="true">
+      <Path>
+        <Point X="12" Y="3.562" />
+        <Point X="12.375" Y="3.562" />
+        <Point X="12.375" Y="2.616" />
+        <Point X="13.5" Y="2.616" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\InactiveUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Building">
+    <Position X="17.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="TowerDefense.ActiveUnit" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="14" Y="4.527" />
+        <Point X="14.375" Y="4.527" />
+        <Point X="14.375" Y="4.781" />
+        <Point X="17.5" Y="4.781" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAwAAAAEAAAAAAAgAAYIEAAAAAAAAAJA=</HashCode>
+      <FileName>Units\Real Units\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Tower">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TowerDefense.Tower.DamageType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Units\Abstract Units\Tower.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <InheritanceLine Type="TowerDefense.MainUnit" FixedFromPoint="true">
+      <Path>
+        <Point X="13.75" Y="7" />
+        <Point X="13.75" Y="6.491" />
+        <Point X="14.5" Y="6.491" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAASAAAAAAAAAAIAAAAAAAAAIACIAACYA=</HashCode>
+      <FileName>Units\Abstract Units\Tower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Creep">
+    <Position X="15.25" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TowerDefense.Creep.CreepState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Units\Abstract Units\Creep.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAEAAAAACAAQAAAAgAAAAACAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\Creep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.AirCreep">
+    <Position X="17.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\AirCreep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.GroundCreep">
+    <Position X="18" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\GroundCreep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.StageManager">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAACAAAgAAAAAgAAAAAEAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Stages\StageManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Effect">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.FadeEffect">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.FlameEffect">
+    <Position X="3.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.MainUnit">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAIAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Units\Abstract Units\MainUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.WorldSpace">
+    <Position X="20.75" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TowerDefense.WorldSpace.CellState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WorldSpace.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAEAAAAAACAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WorldSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Angel">
+    <Position X="20.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Units\Real Units\Angel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="GameStage" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAQAAgACAAAgAAAAABAAAA=</HashCode>
+      <FileName>GlobalVar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MyAnimatedMenuState" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAFAAAgAAAAAACAACAAAA=</HashCode>
+      <FileName>GlobalVar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MenuItemType" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAAAAEAAAA=</HashCode>
+      <FileName>GlobalVar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MenuItemState" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAIAAEAAAAAAAAEAAA=</HashCode>
+      <FileName>GlobalVar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
