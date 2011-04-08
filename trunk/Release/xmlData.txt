@@ -1,0 +1,5 @@
+<Menu>
+	<Menu Name="Play" Type="Task" Function="Loading" />
+	<Menu Name="HighScore" Type="Task" Function="HighScore" />
+	<Menu Name="Options" Type="Task" Function="Options">
+</Menu>

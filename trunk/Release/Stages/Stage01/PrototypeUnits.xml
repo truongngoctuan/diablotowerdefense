@@ -1,0 +1,18 @@
+<PrototypeUnits>
+  <Monster0>
+    <Description>Content\Sprites\Monster0\Description.xml</Description>
+    <IntervalTime>50</IntervalTime>
+    <MaxLife>100</MaxLife>
+    <MaxEnergy>100</MaxEnergy>
+    <Speed>5</Speed>
+    <Defense>90</Defense>
+  </Monster0>
+  <Monster1>
+    <Description>Content\Sprites\Monster1\Description.xml</Description>
+    <IntervalTime>50</IntervalTime>
+    <MaxLife>100</MaxLife>
+    <MaxEnergy>100</MaxEnergy>
+    <Speed>5</Speed>
+    <Defense>90</Defense>
+  </Monster1>  
+</PrototypeUnits>
