@@ -1,0 +1,7 @@
+<StageGroup>
+	<Stage>
+		<Map>Stages\Stage01\Map1.map</Map>
+		<PrototypeUnits>Stages\Stage01\PrototypeUnits.xml</PrototypeUnits>
+		<Units>Stages\Stage01\Buildings.xml</Units>
+	</Stage>
+</StageGroup>
