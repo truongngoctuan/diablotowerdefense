@@ -1,0 +1,1 @@
+do resource de extract ra kha nang nen em khong de resource, chi de lai vai resource tieu bieu

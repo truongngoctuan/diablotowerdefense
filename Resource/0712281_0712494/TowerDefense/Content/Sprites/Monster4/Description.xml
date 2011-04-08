@@ -1,0 +1,9 @@
+<Description>
+	<Name>Monster4</Name>
+	<Total>248</Total>
+	<States>
+		<Moving Offset="0" Direction="8" SpritePerDirection="11" ResourceFolder="Content\Sprites\Monster4\Moving" />
+		<Attacked Offset="88" Direction="8" SpritePerDirection="4" ResourceFolder="Content\Sprites\Monster4\Attacked" />
+		<Dying Offset="120" Direction="8" SpritePerDirection="16" ResourceFolder="Content\Sprites\Monster4\Dying" />
+	</States>
+</Description>

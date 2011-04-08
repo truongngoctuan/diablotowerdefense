@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiabloExRes", "DiabloExRes\DiabloExRes.csproj", "{AB33086F-73E0-43AC-A6A8-15C0A9D7EF11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertWidthHeightMul4", "ConvertWidthHeightMul4\ConvertWidthHeightMul4.csproj", "{02D2332F-1103-4628-B3DF-4A6C60AE6FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAndFolderAccess", "FileAndFolderAccess\FileAndFolderAccess.csproj", "{3EE4E91F-320F-43D2-B10C-A2CA118FC00A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB33086F-73E0-43AC-A6A8-15C0A9D7EF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB33086F-73E0-43AC-A6A8-15C0A9D7EF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB33086F-73E0-43AC-A6A8-15C0A9D7EF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB33086F-73E0-43AC-A6A8-15C0A9D7EF11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D2332F-1103-4628-B3DF-4A6C60AE6FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D2332F-1103-4628-B3DF-4A6C60AE6FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D2332F-1103-4628-B3DF-4A6C60AE6FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D2332F-1103-4628-B3DF-4A6C60AE6FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE4E91F-320F-43D2-B10C-A2CA118FC00A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE4E91F-320F-43D2-B10C-A2CA118FC00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE4E91F-320F-43D2-B10C-A2CA118FC00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE4E91F-320F-43D2-B10C-A2CA118FC00A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
