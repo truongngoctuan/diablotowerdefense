@@ -92,6 +92,7 @@
     <Compile Include="Maps\BackgroundMapUnit.cs" />
     <Compile Include="Maps\MapResourceManager.cs" />
     <Compile Include="AudioPlayer.cs" />
+    <Compile Include="Maps\ObjectMapUnit.cs" />
     <Compile Include="OptionScreen.cs" />
     <Compile Include="ParticleSystemManager.cs" />
     <Compile Include="RefDeviceManager.cs" />
