@@ -52,7 +52,10 @@ namespace TowerDefense
                             //_vt2Position.X = float.Parse(xmlNode.Attributes["X"].Value);
                             //_vt2Position.Y = float.Parse(xmlNode.Attributes["Y"].Value);
                             _vt2Position = GlobalVar.ConvertTileToPixelCenter(GlobalVar.glvt2StartTile);
+                            //Debug.Logging("glvt2StartTile: " + GlobalVar.glvt2StartTile.X.ToString() + " " + GlobalVar.glvt2StartTile.Y.ToString());
+                            //Debug.Logging("_vt2Position: " + _vt2Position.X.ToString() + " " + _vt2Position.Y.ToString());
                             _vt2Gate = _vt2Position;
+
                             break;
                         }
                     case "BatchGroup":

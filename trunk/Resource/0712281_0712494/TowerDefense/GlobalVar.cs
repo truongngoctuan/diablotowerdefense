@@ -61,25 +61,31 @@ namespace TowerDefense
 
         //----------------------------------------------------
         //công thức chuyển đổi vị trí
-        public static float ConvertTileToPixelX(float i, float j)
+        public static float ConvertTileToPixelX(float j, float i)
         {
-            return glvtCellSize.X / 2.0f * (glMapSize.X - 1 - i + j);
+            return glvtCellSize.X * j;
+            //return glvtCellSize.X / 2.0f * (glMapSize.X - 1 - i + j);
         }
 
-        public static float ConvertTileToPixelY(float i, float j)
+        public static float ConvertTileToPixelY(float j, float i)
         {
-            return glvtCellSize.Y / 2 * (i + j);
+            return glvtCellSize.Y * i;
+            //return glvtCellSize.Y / 2 * (i + j);
         }
 
         public static Vector2 ConvertTileToPixelCenter(Vector2 v2PixelPosition)
         {
-            return new Vector2(ConvertTileToPixelX(v2PixelPosition.X, v2PixelPosition.Y) + glvtCellSize.X / 2,
-                ConvertTileToPixelY(v2PixelPosition.X, v2PixelPosition.Y) + glvtCellSize.Y / 2);
+            return ConvertTileToPixelCenter(v2PixelPosition.Y, v2PixelPosition.X);
+            //return new Vector2(ConvertTileToPixelX(v2PixelPosition.X, v2PixelPosition.Y) + glvtCellSize.X / 2,
+            //    ConvertTileToPixelY(v2PixelPosition.X, v2PixelPosition.Y) + glvtCellSize.Y / 2);
         }
         public static Vector2 ConvertTileToPixelCenter(float row, float col)
         {
-            return new Vector2(ConvertTileToPixelX(row, col) + glvtCellSize.X / 2,
-                ConvertTileToPixelY(row, col) + glvtCellSize.Y / 2);
+            return new Vector2(ConvertTileToPixelX(col, row) + glvtCellSize.X / 2.0f,
+                ConvertTileToPixelY(col, row) + glvtCellSize.Y / 2.0f);
+
+            //return new Vector2(ConvertTileToPixelX(row, col) + glvtCellSize.X / 2,
+            //    ConvertTileToPixelY(row, col) + glvtCellSize.Y / 2);
         }
 
         static Vector2[] vtMien = new Vector2[] { 
@@ -90,75 +96,80 @@ namespace TowerDefense
             new Vector2(0, 1)};
         public static Vector2 ConvertPixelToTile(Vector2 v2PixelPosition)
         {
-            //làm tròn tọa độ
-            Vector2 v2PixelPosiionRound = new Vector2((int)(v2PixelPosition.X / glvtCellSize.X * 2) / 2f * 2,
-                (int)(v2PixelPosition.Y / glvtCellSize.Y * 2) / 2f * 2);
+            Vector2 v2tile = new Vector2();
+            v2tile.X = (int)((v2PixelPosition.X) / glvtCellSize.X);
+            v2tile.Y = (int)((v2PixelPosition.Y) / glvtCellSize.Y);
+            return v2tile;
 
-            if ((v2PixelPosiionRound.X % 2 == 0 &&
-                v2PixelPosiionRound.Y % 2 != 0) ||
-            (v2PixelPosiionRound.X % 2 != 0 &&
-                v2PixelPosiionRound.Y % 2 == 0))
-            {
-                if (v2PixelPosition.X - ConvertTileToPixelX(v2PixelPosiionRound.X - 1f, v2PixelPosiionRound.Y) < glvtCellSize.X)
-                {
-                    v2PixelPosiionRound = new Vector2(v2PixelPosiionRound.X - 1, v2PixelPosiionRound.Y);
-                }
-                else
-                {
-                    v2PixelPosiionRound = new Vector2(v2PixelPosiionRound.X, v2PixelPosiionRound.Y - 1);
-                }
-            }
+            ////làm tròn tọa độ
+            //Vector2 v2PixelPosiionRound = new Vector2((int)(v2PixelPosition.X / glvtCellSize.X * 2) / 2f * 2,
+            //    (int)(v2PixelPosition.Y / glvtCellSize.Y * 2) / 2f * 2);
 
-            float ii = (v2PixelPosiionRound.Y
-                - v2PixelPosiionRound.X
-                - 1
-                + glMapSize.X) / 2;
+            //if ((v2PixelPosiionRound.X % 2 == 0 &&
+            //    v2PixelPosiionRound.Y % 2 != 0) ||
+            //(v2PixelPosiionRound.X % 2 != 0 &&
+            //    v2PixelPosiionRound.Y % 2 == 0))
+            //{
+            //    if (v2PixelPosition.X - ConvertTileToPixelX(v2PixelPosiionRound.X - 1f, v2PixelPosiionRound.Y) < glvtCellSize.X)
+            //    {
+            //        v2PixelPosiionRound = new Vector2(v2PixelPosiionRound.X - 1, v2PixelPosiionRound.Y);
+            //    }
+            //    else
+            //    {
+            //        v2PixelPosiionRound = new Vector2(v2PixelPosiionRound.X, v2PixelPosiionRound.Y - 1);
+            //    }
+            //}
 
-            float ij = (v2PixelPosiionRound.Y
-                + v2PixelPosiionRound.X
-                + 1
-                - glMapSize.X) / 2;
+            //float ii = (v2PixelPosiionRound.Y
+            //    - v2PixelPosiionRound.X
+            //    - 1
+            //    + glMapSize.X) / 2;
 
-            //kiểm tra thuộc vùng nào
-            float tx = v2PixelPosition.X - ConvertTileToPixelX(ii, ij);
-            float ty = v2PixelPosition.Y - ConvertTileToPixelY(ii, ij);
-            float h = glvtCellSize.X / 2f;
+            //float ij = (v2PixelPosiionRound.Y
+            //    + v2PixelPosiionRound.X
+            //    + 1
+            //    - glMapSize.X) / 2;
 
-            int iMien;
+            ////kiểm tra thuộc vùng nào
+            //float tx = v2PixelPosition.X - ConvertTileToPixelX(ii, ij);
+            //float ty = v2PixelPosition.Y - ConvertTileToPixelY(ii, ij);
+            //float h = glvtCellSize.X / 2f;
 
-            if (tx <= h)
-                if (ty <= h / 2)
-                    if (tx + 2f * ty - h < 0)
-                        iMien = 1;
-                    else
-                        iMien = 0;
-                else
-                    if (tx - 2f * ty + h < 0)
-                        iMien = 3;
-                    else
-                        iMien = 0;
-            else
-                if (ty <= h / 2)
-                    if (tx - 2f * ty - h > 0)
-                        iMien = 2;
-                    else
-                        iMien = 0;
-                else
-                    if (tx + 2f * ty - 3f * h > 0)
-                        iMien = 4;
-                    else
-                        iMien = 0;
+            //int iMien;
 
-            Vector2 vt = new Vector2(ii + vtMien[iMien].X,
-                ij + vtMien[iMien].Y);
+            //if (tx <= h)
+            //    if (ty <= h / 2)
+            //        if (tx + 2f * ty - h < 0)
+            //            iMien = 1;
+            //        else
+            //            iMien = 0;
+            //    else
+            //        if (tx - 2f * ty + h < 0)
+            //            iMien = 3;
+            //        else
+            //            iMien = 0;
+            //else
+            //    if (ty <= h / 2)
+            //        if (tx - 2f * ty - h > 0)
+            //            iMien = 2;
+            //        else
+            //            iMien = 0;
+            //    else
+            //        if (tx + 2f * ty - 3f * h > 0)
+            //            iMien = 4;
+            //        else
+            //            iMien = 0;
 
-            if (vt.X < 0) vt = new Vector2(0, vt.Y);
-            if (vt.Y < 0) vt = new Vector2(vt.X, 0);
+            //Vector2 vt = new Vector2(ii + vtMien[iMien].X,
+            //    ij + vtMien[iMien].Y);
 
-            if (vt.X >= glMapSize.Y) vt = new Vector2((int)glMapSize.Y - 1, vt.Y);
-            if (vt.Y >= glMapSize.X) vt = new Vector2(vt.X, (int)glMapSize.X - 1);
+            //if (vt.X < 0) vt = new Vector2(0, vt.Y);
+            //if (vt.Y < 0) vt = new Vector2(vt.X, 0);
 
-            return vt;
+            //if (vt.X >= glMapSize.Y) vt = new Vector2((int)glMapSize.Y - 1, vt.Y);
+            //if (vt.Y >= glMapSize.X) vt = new Vector2(vt.X, (int)glMapSize.X - 1);
+
+            //return vt;
         }
         #endregion
 

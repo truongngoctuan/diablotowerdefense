@@ -42,18 +42,6 @@ namespace TowerDefense
             iIndex += iNum;
             iNum = LoadAllFileInFolder(Content, @"Maps\Map\Object");
             _arrIndexStart.Add(new Point(iIndex, iNum));
-            
-            //LoadAllFileInFolder(Content, @"Maps\Map\Desert");
-            //LoadAllFileInFolder(Content, @"Maps\Map\Grass");
-
-            //LoadAllFileInFolder(Content, @"Maps\Map\MoreDesertLessGrass");
-            //LoadAllFileInFolder(Content, @"Maps\Map\LessDesertMoreGrass");
-            //LoadAllFileInFolder(Content, @"Maps\Map\DesertEqualGrass");
-
-            //LoadAllFileInFolder(Content, @"Maps\Map\Road\BrickLeftToRight");
-            //LoadAllFileInFolder(Content, @"Maps\Map\Road\BrickRightToLeft");
-
-            //LoadAllFileInFolder(Content, @"Maps\Map\Object");
         }
 
         int LoadAllFileInFolder(ContentManager Content, string strPath)
@@ -73,9 +61,6 @@ namespace TowerDefense
         public void Draw(SpriteBatch spriteBatch, int iTextureIndex, Vector2 vt2Position, Vector2 vt2Center, float _fDepth,
             float fScale)
         {
-            //Vector2 vt2Center = new Vector2(_rsTexture2Ds[iTextureIndex].Width / 2,
-            //    _rsTexture2Ds[iTextureIndex].Height / 2);
-
             spriteBatch.Draw(_rsTexture2Ds[iTextureIndex],
                 vt2Position,
                 null,
@@ -85,10 +70,6 @@ namespace TowerDefense
                 fScale,
                 SpriteEffects.None,
                 _fDepth);
-            
-            //spriteBatch.Draw(_rsTexture2Ds[iTextureIndex],
-            //    vt2Position,
-            //    Color.White);
         }
     }
 }
