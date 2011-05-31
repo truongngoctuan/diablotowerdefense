@@ -10602,6 +10602,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\Map\Move\desert.png">
+      <Name>desert</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Maps\Map\NotMove\grass.png">
+      <Name>grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Options\option.conf">
       <Name>option</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

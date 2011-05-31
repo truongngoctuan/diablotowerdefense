@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 using System.IO;
 using KkunFGame;
 
-namespace TowerDefense
+namespace TowerDefense 
 {
     /// <summary>
     /// This is the main type for your game
@@ -94,9 +94,7 @@ namespace TowerDefense
                 fIntroMovieScale = GlobalVar.glViewport.X / introMovie.Width;
             else
                 fIntroMovieScale = GlobalVar.glViewport.Y / introMovie.Height;
-            GlobalVar.SetGameStage(GameStage.Intro);
-
-
+            GlobalVar.SetGameStage(GameStage.MainMenu);
         }
 
         /// <summary>
