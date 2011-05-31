@@ -135,8 +135,8 @@ namespace TowerDefense
             //la61y vitrí bắt đầu ra creep
             strBufferLine = sr.ReadLine();
             string[] strStart = strBufferLine.Split(' ');
-            GlobalVar.glvt2StartTile = new Vector2(Convert.ToInt32(strStart[0]),
-                Convert.ToInt32(strStart[1]));
+            GlobalVar.glvt2StartTile = new Vector2(Convert.ToInt32(strStart[1]),
+                Convert.ToInt32(strStart[0]));
 
             sr.Close();
             fStream.Close();

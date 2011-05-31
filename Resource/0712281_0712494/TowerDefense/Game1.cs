@@ -261,17 +261,17 @@ namespace TowerDefense
                                 GlobalVar.glRootCoordinate.Y = -200 * GlobalVar.glMapScale;
                             }
 
-                            if (GlobalVar.glRootCoordinate.X + GlobalVar.glViewport.X > (GlobalVar.ConvertTileToPixelX(0, GlobalVar.glMapSize.X - 1)
+                            if (GlobalVar.glRootCoordinate.X + GlobalVar.glViewport.X > (GlobalVar.ConvertTileToPixelX(GlobalVar.glMapSize.X - 1, 0)
                                                                                     + GlobalVar.glvtCellSize.X) * GlobalVar.glMapScale)
                             {
-                                GlobalVar.glRootCoordinate.X = (GlobalVar.ConvertTileToPixelX(0, GlobalVar.glMapSize.X - 1)
+                                GlobalVar.glRootCoordinate.X = (GlobalVar.ConvertTileToPixelX(GlobalVar.glMapSize.X - 1, 0)
                                                             + GlobalVar.glvtCellSize.X) * GlobalVar.glMapScale - GlobalVar.glViewport.X;
                             }
 
-                            if (GlobalVar.glRootCoordinate.Y + GlobalVar.glViewport.Y > (GlobalVar.ConvertTileToPixelY(GlobalVar.glMapSize.Y - 1, GlobalVar.glMapSize.X)
+                            if (GlobalVar.glRootCoordinate.Y + GlobalVar.glViewport.Y > (GlobalVar.ConvertTileToPixelY(GlobalVar.glMapSize.X, GlobalVar.glMapSize.Y - 1)
                                                                                     + GlobalVar.glvtCellSize.Y / 2) * GlobalVar.glMapScale)
                             {
-                                GlobalVar.glRootCoordinate.Y = (GlobalVar.ConvertTileToPixelY(GlobalVar.glMapSize.Y - 1, GlobalVar.glMapSize.X)
+                                GlobalVar.glRootCoordinate.Y = (GlobalVar.ConvertTileToPixelY(GlobalVar.glMapSize.X, GlobalVar.glMapSize.Y - 1)
                                                             + GlobalVar.glvtCellSize.Y / 2) * GlobalVar.glMapScale - GlobalVar.glViewport.Y;
                             }
 

@@ -1,1 +1,1 @@
-<Buildings>	<Building>		<Description></Description>		<Position X="250" Y="500" />		<BatchGroup>			<Batch Size="10" Delay="250" BatchDelay="1000">0000000000</Batch>		</BatchGroup>	</Building></Buildings>
+<Buildings>	<Building>		<Description></Description>		<Position X="250" Y="500" />		<BatchGroup>			<Batch Size="1" Delay="250" BatchDelay="1000">0</Batch>		</BatchGroup>	</Building></Buildings>

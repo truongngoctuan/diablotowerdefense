@@ -20,7 +20,7 @@ namespace TowerDefense
         }
 
         protected Vector2 _vt2Direction;
-        protected Orientation _orientation;
+        protected Orientation _orientation = Orientation.Right;
 
         protected State _state;
         public State State
@@ -143,6 +143,7 @@ namespace TowerDefense
             }
         }
 
+        protected Vector2 _v2NextMovePoint; //diem tiep theo can di chuyen toi gan do
         protected void PickParticleDirection()
         {
             #region TimDuongDi
@@ -152,41 +153,108 @@ namespace TowerDefense
             //xác định tiles nào nhỏ hơn tile hiện tại
             //random các tiles đó
 
+            this._vt2Direction = new Vector2(0, 0);
+            this._orientation = Orientation.Right;
+
             Vector2 vt2CurrentTile = GlobalVar.ConvertPixelToTile(Position);
+            Debug.Logging("Position: " + Position.X.ToString() + Position.Y.ToString());
+            Debug.Logging("ConvertPixelToTile: " + vt2CurrentTile.X.ToString() + vt2CurrentTile.Y.ToString());
+            
             if (vt2CurrentTile == _vt2OldPositionTiles) return;
 
-            int iX = (int)vt2CurrentTile.X;
-            int iY = (int)vt2CurrentTile.Y;
+            int ii = (int)vt2CurrentTile.Y;
+            int ij = (int)vt2CurrentTile.X;
 
-            int iCurrentValue = GlobalVar.glCurrentMap.MapCellsRoad[iX, iY];
+            int iCurrentValue = GlobalVar.glCurrentMap.MapCellsRoad[ii, ij];
 
-            List<int> listiNeighborX = new List<int>();
-            List<int> listiNeighborY = new List<int>();
-            List<int> listiNeighborValue = new List<int>();
-            List<int> listiNeighborOrientation = new List<int>();
+            Debug.Logging("ii ij iCurrentValue: " + ii.ToString() + " " + ij.ToString() +" " + iCurrentValue.ToString());
+            
 
-            for (int i = 0; i < 8; i++)
+            if (ij - 1 < 0)
             {
-                AddNeighborIfLowerValue(iCurrentValue,
-                    iX,
-                    iY,
-                    i,
-                    ref listiNeighborX,
-                    ref listiNeighborY,
-                    ref listiNeighborValue,
-                    ref listiNeighborOrientation);
             }
-            if (listiNeighborX.Count == 0) return;
-            int iChosenNeighbor = GlobalVar.glRandom.Next(listiNeighborX.Count);
+            else
+            {
+                if (GlobalVar.glCurrentMap.MapCellsRoad[ii, ij - 1] > 0 &&
+                    GlobalVar.glCurrentMap.MapCellsRoad[ii, ij - 1] < iCurrentValue)
+                {
+                    this._vt2Direction = new Vector2(-1, 0);
+                    this._orientation = Orientation.Left;
+                    _v2NextMovePoint = GlobalVar.ConvertTileToPixelCenter(ii, ij - 1);
+                }
+            }
 
-            float angle = -22.5f + listiNeighborOrientation[iChosenNeighbor] * 45f + GlobalVar.glRandom.Next(44);
-            float radians = MathHelper.ToRadians(angle);
+            if (ij + 1 > GlobalVar.glMapSize.X)
+            {
+            }
+            else
+            {
+                if (GlobalVar.glCurrentMap.MapCellsRoad[ii, ij + 1] > 0 &&
+                    GlobalVar.glCurrentMap.MapCellsRoad[ii, ij + 1] < iCurrentValue)
+                {
+                    this._vt2Direction = new Vector2(1, 0);
+                    this._orientation = Orientation.Right;
+                    _v2NextMovePoint = GlobalVar.ConvertTileToPixelCenter(ii, ij + 1);
+                }
+            }
 
-            this._vt2Direction = Vector2.Zero;
-            this._vt2Direction.X = (float)Math.Cos(radians);
-            this._vt2Direction.Y = -(float)Math.Sin(radians);
+            if (ii - 1 < 0)
+            {
+            }
+            else
+            {
+                if (GlobalVar.glCurrentMap.MapCellsRoad[ii - 1, ij] > 0 &&
+                    GlobalVar.glCurrentMap.MapCellsRoad[ii - 1, ij] < iCurrentValue)
+                {
+                    this._vt2Direction = new Vector2(0, -1);
+                    this._orientation = Orientation.Top;
+                    _v2NextMovePoint = GlobalVar.ConvertTileToPixelCenter(ii - 1, ij);
+                }
+            }
 
-            this._orientation = (Orientation)listiNeighborOrientation[iChosenNeighbor];
+            if (ii + 1 > GlobalVar.glMapSize.Y)
+            {
+            }
+            else
+            {
+                if (GlobalVar.glCurrentMap.MapCellsRoad[ii + 1, ij] > 0 &&
+                    GlobalVar.glCurrentMap.MapCellsRoad[ii + 1, ij] < iCurrentValue)
+                {
+                    this._vt2Direction = new Vector2(0, 1);
+                    this._orientation = Orientation.Bottom;
+                    _v2NextMovePoint = GlobalVar.ConvertTileToPixelCenter(ii + 1, ij);
+                }
+            }
+
+            Debug.Logging("orientation: " + this._orientation.ToString());
+
+            //List<int> listiNeighborX = new List<int>();
+            //List<int> listiNeighborY = new List<int>();
+            //List<int> listiNeighborValue = new List<int>();
+            //List<int> listiNeighborOrientation = new List<int>();
+
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    AddNeighborIfLowerValue(iCurrentValue,
+            //        iX,
+            //        iY,
+            //        i,
+            //        ref listiNeighborX,
+            //        ref listiNeighborY,
+            //        ref listiNeighborValue,
+            //        ref listiNeighborOrientation);
+            //}
+            //if (listiNeighborX.Count == 0) return;
+            //int iChosenNeighbor = GlobalVar.glRandom.Next(listiNeighborX.Count);
+
+            //float angle = -22.5f + listiNeighborOrientation[iChosenNeighbor] * 45f + GlobalVar.glRandom.Next(44);
+            //float radians = MathHelper.ToRadians(angle);
+
+            //this._vt2Direction = Vector2.Zero;
+            //this._vt2Direction.X = (float)Math.Cos(radians);
+            //this._vt2Direction.Y = -(float)Math.Sin(radians);
+
+            //this._orientation = (Orientation)listiNeighborOrientation[iChosenNeighbor];
             #endregion
 
             //// Point the particles somewhere between 80 and 100 degrees.

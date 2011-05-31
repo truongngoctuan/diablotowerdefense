@@ -228,6 +228,8 @@ namespace TowerDefense
             this._creepState = CreepState.Normal;
             //PickParticleDirection();
             ChangeState(State.Moving);
+
+            _v2NextMovePoint = vt2Position;
         }
 
         private void ChangeDirection()
@@ -267,9 +269,15 @@ namespace TowerDefense
                 {
                     case State.Moving:
                         {
-                            PickParticleDirection();
-                            ChangeDirection();
-
+                            Debug.Logging("Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()) < _iSpeed: " + Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()).ToString() + 
+                                " " + _iSpeed.ToString());
+                            if (Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()) < _iSpeed)
+                            {
+                                PickParticleDirection();
+                                ChangeDirection();
+                                Debug.Logging("after PickParticleDirection: " + this._vt2Direction.X.ToString() + this._vt2Direction.Y.ToString());
+                                Debug.Logging("after ChangeDirection: " + this._orientation);
+                            }
                             _iSprite = (_iSprite + 1) % _nSprite;
                             _vt2Position += _iSpeed * _vt2Direction;
 
