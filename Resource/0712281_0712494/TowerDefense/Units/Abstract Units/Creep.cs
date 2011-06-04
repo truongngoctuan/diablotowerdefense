@@ -19,8 +19,20 @@ namespace TowerDefense
             set { _iDefense = value; }
         }
 
-        protected Vector2 _vt2Direction;
-        protected Orientation _orientation = Orientation.Right;
+        private Vector2 _vt2Direction;
+
+        protected Vector2 Direction
+        {
+            get { return _vt2Direction; }
+            set { _vt2Direction = value; }
+        }
+        private Orientation _orientation = Orientation.Right;
+
+        protected Orientation Orientation
+        {
+            get { return _orientation; }
+            set { _orientation = value; }
+        }
 
         protected State _state;
         public State State
@@ -157,8 +169,8 @@ namespace TowerDefense
             this._orientation = Orientation.Right;
 
             Vector2 vt2CurrentTile = GlobalVar.ConvertPixelToTile(Position);
-            Debug.Logging("Position: " + Position.X.ToString() + Position.Y.ToString());
-            Debug.Logging("ConvertPixelToTile: " + vt2CurrentTile.X.ToString() + vt2CurrentTile.Y.ToString());
+            //Debug.Logging("Position: " + Position.X.ToString() + Position.Y.ToString());
+            //Debug.Logging("ConvertPixelToTile: " + vt2CurrentTile.X.ToString() + vt2CurrentTile.Y.ToString());
             
             if (vt2CurrentTile == _vt2OldPositionTiles) return;
 
@@ -167,7 +179,7 @@ namespace TowerDefense
 
             int iCurrentValue = GlobalVar.glCurrentMap.MapCellsRoad[ii, ij];
 
-            Debug.Logging("ii ij iCurrentValue: " + ii.ToString() + " " + ij.ToString() +" " + iCurrentValue.ToString());
+            //Debug.Logging("ii ij iCurrentValue: " + ii.ToString() + " " + ij.ToString() +" " + iCurrentValue.ToString());
             
 
             if (ij - 1 < 0)
@@ -226,7 +238,7 @@ namespace TowerDefense
                 }
             }
 
-            Debug.Logging("orientation: " + this._orientation.ToString());
+            //Debug.Logging("orientation: " + this._orientation.ToString());
 
             //List<int> listiNeighborX = new List<int>();
             //List<int> listiNeighborY = new List<int>();

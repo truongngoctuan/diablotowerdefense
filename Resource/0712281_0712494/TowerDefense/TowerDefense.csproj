@@ -137,6 +137,7 @@
     <Compile Include="Units\Real Units\Tower4.cs" />
     <Compile Include="Units\Real Units\Tower5.cs" />
     <Compile Include="Units\Real Units\Bullet.cs" />
+    <Compile Include="Units\Real Units\UtilReadFile.cs" />
     <Compile Include="Units\UnitManager.cs" />
     <Compile Include="WorldSpace.cs" />
   </ItemGroup>
