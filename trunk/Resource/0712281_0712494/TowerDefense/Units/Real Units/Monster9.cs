@@ -162,7 +162,8 @@ namespace TowerDefense
             iHeight = (int)(ResourceManager._rsCreepSprites[iBaseSprite].Height * _fScale);
             iWidth = (int)(ResourceManager._rsCreepSprites[iBaseSprite].Width * _fScale);
 
-            ReadDataFromOffsetFile();
+            UtilReadFile.ReadDataFromOffsetFile(ref _vt2OffsetSprite, ref _vt2BoundSprite,
+                strMovingResourceFolder, strAttackedResourceFolder, strDyingResourceFolder, _strOffsetFilename);
         }
 
         protected override void ChangeState(State newState)
@@ -170,7 +171,7 @@ namespace TowerDefense
             #region "Change State => Sprite"
             _state = newState;
             //int iOrientation = (int)Enum.Parse(typeof(Orientation), _orientation.ToString());
-            int iOrientation = (int)this._orientation;
+            int iOrientation = (int)this.Orientation;
             switch (_state)
             {
                 case State.Moving:
@@ -234,7 +235,7 @@ namespace TowerDefense
         {
             #region "Change Direction => Sprite"
             //int iOrientation = (int)Enum.Parse(typeof(Orientation), _orientation.ToString());
-            int iOrientation = (int)this._orientation;
+            int iOrientation = (int)this.Orientation;
             switch (_state)
             {
                 case State.Moving:
@@ -271,7 +272,7 @@ namespace TowerDefense
                             ChangeDirection();
 
                             _iSprite = (_iSprite + 1) % _nSprite;
-                            _vt2Position += _iSpeed * _vt2Direction;
+                            _vt2Position += _iSpeed * Direction;
 
                             if (GlobalVar.GetWorldCell(_vt2Position) > 0)
                             {
@@ -388,87 +389,7 @@ namespace TowerDefense
                 _iHeight = (int)(imgSprites[iSprite].Height * _fScale);
             }
         }
-        static Vector2[] ReadDataFromOffsetFile(string strFileName)
-        {
-            //khởi tạo
-            FileStream fStream;
 
-            fStream = new FileStream(strFileName,
-                FileMode.Open,
-                FileAccess.Read);
-
-            StreamReader sr = new StreamReader(fStream);
-
-            //lấy khung
-            string strBuffer;
-            strBuffer = sr.ReadLine();
-            string[] strBoundSpliter = strBuffer.Split(new char[] { ' ' });
-            _vt2BoundSprite.Add(new Vector2(int.Parse(strBoundSpliter[0]), int.Parse(strBoundSpliter[1])));
-
-            //lấy số lương cần chạy
-            strBuffer = sr.ReadLine();
-            int iCount = int.Parse(strBuffer);
-
-            Vector2[] vt2Offset = new Vector2[iCount];
-
-            //đọc từng cụm monster
-            for (int i = 0; i < iCount; i++)
-            {
-                strBuffer = sr.ReadLine();
-                string[] strOffsetSpliter = strBuffer.Split(new char[] { ' ' });
-
-                vt2Offset[i] = new Vector2(int.Parse(strOffsetSpliter[1]), int.Parse(strOffsetSpliter[2]));
-            }
-
-            sr.Close();
-            fStream.Close();
-
-            return vt2Offset;
-        }
-
-        static void ReadDataFromOffsetFile()
-        {
-            _vt2OffsetSprite = new List<Vector2[]>();
-
-            _vt2OffsetSprite.Add(ReadDataFromOffsetFile(strMovingResourceFolder + "\\" + _strOffsetFilename));
-            _vt2OffsetSprite.Add(ReadDataFromOffsetFile(strAttackedResourceFolder + "\\" + _strOffsetFilename));
-            _vt2OffsetSprite.Add(ReadDataFromOffsetFile(strDyingResourceFolder + "\\" + _strOffsetFilename));
-        }
-
-        //public override void Draw(SpriteBatch spriteBatch)
-        //{
-        //    Texture2D[] imgSprites = ResourceManager._rsCreepSprites;
-        //    int iSprite = _iFirstSprite + _iSprite;
-
-        //    ResourceManager.Draw(spriteBatch, imgSprites[iSprite], new Vector2(imgSprites[iSprite].Width / 2, imgSprites[iSprite].Height / 2), _vt2Position, _fScale, _fDepth);
-        //}
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            if (_state == State.Died)
-            {
-                return;
-            }
-
-            Texture2D[] imgSprites = ResourceManager._rsCreepSprites;
-            int iSprite = _iFirstSprite + _iSprite;
-
-            //Vector2 vt2NewPosition = _vt2Position 
-            //    - _vt2BoundSprite[(int)_state] / 2
-            //    + _vt2OffsetSprite[(int)_state][iSpriteNonOffset];
-
-            //ResourceManager.Draw(spriteBatch,
-            //    imgSprites[iSprite],
-            //    new Vector2(0, 0),
-            //    vt2NewPosition, 1.0f,
-            //    _fDepth);
-
-            ResourceManager.Draw(spriteBatch,
-                imgSprites[iSprite],
-                new Vector2(0, 0),
-                _vt2CurrentPositionTopLeftOfFrame, _fScale,
-                _fDepth);
-        }
         #endregion
     }
 }
