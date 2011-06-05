@@ -18,9 +18,38 @@ namespace TowerDefense.GameState
         public static MyAnimatedMenu glAnimatedMenu;
         public static Texture2D[] _rsTexture2Ds;
 
-        public override void ChangeGameState(ref Game1 context)
+        public override void NextState(ref Game1 context)
         {
             //intro to mainmenu
+        }
+
+        public void NextState(ref Game1 context, GameStage gs)
+        {
+            switch (gs)
+            {
+                case GameStage.SinglePlayer:
+                    {
+                        break;
+                    }
+                case GameStage.Options:
+                    {
+                        context.CurrentGameState.Clean();
+                        //intro to mainmenu
+                        context.CurrentGameState = new OptionGameState();
+                        context.CurrentGameState.Initialize();
+                        context.CurrentGameState.LoadContent(context.Content);
+                        break;
+                    }
+                case GameStage.HighScore:
+                    {
+                        break;
+                    }
+            }
+
+        }
+
+        public override void PreviousState(ref Game1 context)
+        {
         }
 
         public override void Update(GameTime gameTime)

@@ -228,14 +228,17 @@ namespace TowerDefense
             string strBuffer;
             strBuffer = sr.ReadLine();
 
+            radioFullScreen = new RadioButton();
             radioFullScreen.radioState = (OptionRadioState)int.Parse(strBuffer);
 
             strBuffer = sr.ReadLine();
 
+            radioMuteSound = new RadioButton();
             radioMuteSound.radioState = (OptionRadioState)int.Parse(strBuffer);
 
             strBuffer = sr.ReadLine();
 
+            volumebt = new VolumeButton();
             volumebt.fVolume = (float)int.Parse(strBuffer) * 0.1f;
 
             sr.Close();

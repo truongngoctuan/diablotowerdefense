@@ -137,7 +137,8 @@ namespace TowerDefense
             {
                 case MenuItemType.Task:
                     {
-                        GlobalVar.SetGameStage(this._gameStage);
+                        //GlobalVar.SetGameStage(this._gameStage);
+                        ((GameState.MainMenuGameState)GlobalVar.glGame.CurrentGameState).NextState(ref GlobalVar.glGame, this._gameStage);
                         break;
                     }
                 case MenuItemType.SubMenu:

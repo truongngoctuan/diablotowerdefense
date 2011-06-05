@@ -67,7 +67,7 @@ namespace TowerDefense
             this.IsMouseVisible = false;
             vt2CursorPosition = new Vector2();
 
-            GlobalVar.glOptionScreen = new OptionScreen();
+            
 
             OptionScreen.ReadFromFile();
             OptionScreen.ToggleFullScreen();
@@ -175,11 +175,12 @@ namespace TowerDefense
                     }
                 case GameStage.Options:
                     {
-                        if (keyboardState.IsKeyDown(Keys.Escape) == true && oldKeyboardState.IsKeyDown(Keys.Escape) == false)
-                        {
-                            GlobalVar.SetGameStage(GameStage.MainMenu);
-                        }
-                        GlobalVar.glOptionScreen.Update(oldMouseState, oldKeyboardState);
+                        CurrentGameState.Update(gameTime);
+                        //if (keyboardState.IsKeyDown(Keys.Escape) == true && oldKeyboardState.IsKeyDown(Keys.Escape) == false)
+                        //{
+                        //    GlobalVar.SetGameStage(GameStage.MainMenu);
+                        //}
+                        //GlobalVar.glOptionScreen.Update(oldMouseState, oldKeyboardState);
                         break;
                     }
                 case GameStage.Loading:
@@ -298,7 +299,8 @@ namespace TowerDefense
                     }
                 case GameStage.Options:
                     {
-                        GlobalVar.glOptionScreen.Draw(spriteBatch);
+                        CurrentGameState.Draw(gameTime, spriteBatch);
+
                         //spriteBatch.DrawString(ResourceManager._rsFonts[0], "Options", new Vector2(250, 400), Color.Black);
                         break;
                     }
