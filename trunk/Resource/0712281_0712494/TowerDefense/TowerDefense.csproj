@@ -96,7 +96,6 @@
     <Compile Include="Maps\ObjectMapUnit.cs" />
     <Compile Include="OptionScreen.cs" />
     <Compile Include="ParticleSystemManager.cs" />
-    <Compile Include="RefDeviceManager.cs" />
     <Compile Include="Units\Abstract Units\AirCreep.cs" />
     <Compile Include="Units\BulletParticleSystem.cs" />
     <Compile Include="Units\Particle.cs" />
@@ -115,11 +114,6 @@
     <Compile Include="Maps\Map.cs" />
     <Compile Include="Menu\MenuItem.cs" />
     <Compile Include="Units\Real Units\Monster0.cs" />
-    <Compile Include="Units\Real Units\Monster1.cs" />
-    <Compile Include="Units\Real Units\Monster2.cs" />
-    <Compile Include="Units\Real Units\Monster3.cs" />
-    <Compile Include="Units\Real Units\Monster4.cs" />
-    <Compile Include="Units\Real Units\Monster6.cs" />
     <Compile Include="Menu\MyAnimatedMenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,8 +123,6 @@
     <Compile Include="Stages\StageManager.cs" />
     <Compile Include="Units\Abstract Units\Tower.cs" />
     <Compile Include="Units\Abstract Units\Unit.cs" />
-    <Compile Include="Units\Real Units\Monster8.cs" />
-    <Compile Include="Units\Real Units\Monster9.cs" />
     <Compile Include="Units\Real Units\Tower1.cs" />
     <Compile Include="Units\Real Units\Tower2.cs" />
     <Compile Include="Units\Real Units\Tower3.cs" />

@@ -47,50 +47,56 @@ namespace TowerDefense
                 {
                     case "Monster0":
                         {
-                            Monster0.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster0(new Vector2()));
+                            Monster0 m0 = new Monster0(new Vector2());
+                            m0.Initialize(xmlUnit.ChildNodes);
+                            //m0.LoadResource();
+                            _prototypeUnits.Add(m0);
                             break;
                         }
-                    case "Monster1":
+                    //case "Monster1":
+                    //    {
+                    //        Monster1.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster1(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster2":
+                    //    {
+                    //        Monster2.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster2(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster3":
+                    //    {
+                    //        Monster3.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster3(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster4":
+                    //    {
+                    //        Monster4.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster4(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster6":
+                    //    {
+                    //        Monster6.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster6(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster8":
+                    //    {
+                    //        Monster8.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster8(new Vector2()));
+                    //        break;
+                    //    }
+                    //case "Monster9":
+                    //    {
+                    //        Monster9.Initialize(xmlUnit.ChildNodes);
+                    //        _prototypeUnits.Add(new Monster9(new Vector2()));
+                    //        break;
+                    //    }
+                    default:
                         {
-                            Monster1.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster1(new Vector2()));
-                            break;
-                        }
-                    case "Monster2":
-                        {
-                            Monster2.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster2(new Vector2()));
-                            break;
-                        }
-                    case "Monster3":
-                        {
-                            Monster3.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster3(new Vector2()));
-                            break;
-                        }
-                    case "Monster4":
-                        {
-                            Monster4.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster4(new Vector2()));
-                            break;
-                        }
-                    case "Monster6":
-                        {
-                            Monster6.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster6(new Vector2()));
-                            break;
-                        }
-                    case "Monster8":
-                        {
-                            Monster8.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster8(new Vector2()));
-                            break;
-                        }
-                    case "Monster9":
-                        {
-                            Monster9.Initialize(xmlUnit.ChildNodes);
-                            _prototypeUnits.Add(new Monster9(new Vector2()));
                             break;
                         }
                 }
