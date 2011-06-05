@@ -16,7 +16,7 @@ namespace TowerDefense
 {
     public class ResourceManager
     {
-        public static Texture2D[] _rsTexture2Ds;
+        //public static Texture2D[] _rsTexture2Ds;
         //public static Texture2D[] _rsMapTiles;
         public static SpriteFont[] _rsFonts;
 
