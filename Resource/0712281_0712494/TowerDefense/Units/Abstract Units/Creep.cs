@@ -8,7 +8,7 @@ namespace TowerDefense
 {
     public abstract class Creep : MainUnit
     {
-        protected int _iBaseSpeed;
+        protected int _iMaxSpeed;
         protected int _iSpeed;
 
         protected int _iBaseDefense;

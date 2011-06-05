@@ -12,29 +12,15 @@ namespace TowerDefense
 {
     public class Monster0 : GroundCreep
     {
-        static int nMovingSpriteOffset;
-        static int nAttackedSpriteOffset;
-        static int nDyingSpriteOffset;
 
-        static int nMovingSpritesPerDirection;
-        static int nAttackedSpritesPerDirection;
-        static int nDyingSpritesPerDirection;
 
-        static string strMovingResourceFolder;
-        static string strAttackedResourceFolder;
-        static string strDyingResourceFolder;
-
-        static int iIntervalTime;
-        static int iBaseMaxLife;
-        static int iBaseMaxEnergy;
-        static int iBaseSpeed;
-        static int iBaseDefense;
-
-        static int iBaseSprite;     
-        static int iHeight;
-        static int iWidth;
-
-        public static void Initialize(XmlNodeList xmlNodeList)
+        /// <summary>
+        /// Initializes form the specified XML node list.
+        /// in init, call func load description
+        /// and load other properties
+        /// </summary>
+        /// <param name="xmlNodeList">The XML node list.</param>
+        public void Initialize(XmlNodeList xmlNodeList)
         {
             #region "Load Common Properties"
             foreach (XmlNode xmlNode in xmlNodeList)
@@ -43,33 +29,33 @@ namespace TowerDefense
                 {
                     case "Description":
                         {
-                            string strDescriptionFile = xmlNode.InnerText;
-                            LoadDescription(strDescriptionFile);
+                            this.strDescriptionFile = xmlNode.InnerText;
+                            LoadDescription(strDescriptionFile, ref ResourceManager.nCreepSprites);
                             break;
                         }
                     case "IntervalTime":
                         {
-                            Monster0.iIntervalTime = int.Parse(xmlNode.InnerText);
+                            this._iBaseIntervalTime = int.Parse(xmlNode.InnerText);   
                             break;
                         }
                     case "MaxLife":
                         {
-                            Monster0.iBaseMaxLife = int.Parse(xmlNode.InnerText);
+                            this._iMaxLife = int.Parse(xmlNode.InnerText);
                             break;
                         }
                     case "MaxEnergy":
                         {
-                            Monster0.iBaseMaxEnergy = int.Parse(xmlNode.InnerText);
+                            this._iMaxEnergy = int.Parse(xmlNode.InnerText);
                             break;
                         }
                     case "Speed":
                         {
-                            Monster0.iBaseSpeed = int.Parse(xmlNode.InnerText);
+                            this._iMaxSpeed = int.Parse(xmlNode.InnerText);
                             break;
                         }
                     case "Defense":
                         {
-                            Monster0.iBaseDefense = int.Parse(xmlNode.InnerText);
+                            this._iBaseDefense = int.Parse(xmlNode.InnerText);
                             break;
                         }
                 }
@@ -77,7 +63,7 @@ namespace TowerDefense
             #endregion
         }
 
-        private static void LoadDescription(string strDescriptionFile)
+        private void LoadDescription(string strDescriptionFile, ref int nCreepSprites)
         {
             #region "Load SpriteInfo"
             XmlDocument xmlDoc = new XmlDocument();
@@ -90,9 +76,9 @@ namespace TowerDefense
                 {
                     case "Total":
                         {
-                            iBaseSprite = ResourceManager.nCreepSprites;
+                            iBaseSprite = nCreepSprites;
                             int nTotalSprite = int.Parse(xmlNode.InnerText);
-                            ResourceManager.nCreepSprites += nTotalSprite;
+                            nCreepSprites += nTotalSprite;
                             break;
                         }
                     case "States":
@@ -131,9 +117,15 @@ namespace TowerDefense
             }
             #endregion
         }
-
+        /// <summary>
+        /// Loads the resource.
+        /// gan gia tri cho resource manager
+        /// chi load 1 lan va mai mai
+        /// </summary>
         public override void LoadResource()
         {
+            
+
             #region Sprite Resource
             int iCurrentSprite = iBaseSprite;
             string[] movingSprites = System.IO.Directory.GetFiles(strMovingResourceFolder);
@@ -162,8 +154,11 @@ namespace TowerDefense
             iHeight = (int)(ResourceManager._rsCreepSprites[iBaseSprite].Height * _fScale);
             iWidth = (int)(ResourceManager._rsCreepSprites[iBaseSprite].Width * _fScale);
 
+            _vt2OffsetSprite = new List<Vector2[]>();
+            _vt2BoundSprite = new List<Vector2>();//khung chứa sprite, width height
+
             UtilReadFile.ReadDataFromOffsetFile(ref _vt2OffsetSprite, ref _vt2BoundSprite,
-                strMovingResourceFolder, strAttackedResourceFolder, strDyingResourceFolder,_strOffsetFilename);
+                strMovingResourceFolder, strAttackedResourceFolder, strDyingResourceFolder, _strOffsetFilename);
         }
 
         protected override void ChangeState(State newState)
@@ -208,20 +203,20 @@ namespace TowerDefense
             // gán giá trị static (nhập vào từ file) cho object mới
             this._vt2Position = vt2Position;
            
-            this._iMaxLife = Monster0.iBaseMaxLife;
-            this._iMaxEnergy = Monster0.iBaseMaxEnergy;
-            this._iBaseSpeed = Monster0.iBaseSpeed;
-            this._iBaseDefense = Monster0.iBaseDefense;
-            this._iBaseIntervalTime = Monster0.iIntervalTime;            
+            //this._iMaxLife = iBaseMaxLife;
+            //this._iMaxEnergy = iBaseMaxEnergy;
+            //this._iBaseSpeed = iBaseSpeed;
+            //this._iBaseDefense = iBaseDefense;
+            //this._iBaseIntervalTime = iIntervalTime;            
             
             this._iLife = this._iMaxLife;
             this._iEnergy = this._iMaxEnergy;
-            this._iSpeed = this._iBaseSpeed;
+            //this._iSpeed = this._iBaseSpeed;
             this.IDefense = this._iBaseDefense;
 
             this._bSelected = false;
-            this._iHeight = Monster0.iHeight;
-            this._iWidth = Monster0.iWidth;            
+            this._iHeight = iHeight;
+            this._iWidth = iWidth;            
             this._effect = null;
             this._fDepth = 1.0f;
 
@@ -229,6 +224,7 @@ namespace TowerDefense
             this._creepState = CreepState.Normal;
             //PickParticleDirection();
             ChangeState(State.Moving);
+            ChangeDirection();
 
             _v2NextMovePoint = vt2Position;
         }
@@ -271,7 +267,7 @@ namespace TowerDefense
                         {
                             //Debug.Logging("Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()) < _iSpeed: " + Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()).ToString() + 
                             //    " " + _iSpeed.ToString());
-                            if (Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()) < _iSpeed)
+                            if (Math.Abs(_v2NextMovePoint.Length() - _vt2Position.Length()) <= _iSpeed)
                             {
                                 PickParticleDirection();
                                 ChangeDirection();
@@ -329,74 +325,19 @@ namespace TowerDefense
             }
         }
 
-        //public override void Draw(SpriteBatch spriteBatch)
-        //{
-        //    Texture2D[] imgSprites = ResourceManager._rsCreepSprites;
-        //    int iSprite = _iFirstSprite + _iSprite;
-
-        //    ResourceManager.Draw(spriteBatch, imgSprites[iSprite], new Vector2(imgSprites[iSprite].Width / 2, imgSprites[iSprite].Height / 2), _vt2Position, _fScale, _fDepth);
-        //}
 
         public override Unit Clone(Vector2 vt2Position)
         {            
             //return new Monster3(_vt2Position, _direction,_iSprite);
-            return new Monster0(vt2Position);
+            Monster0 m0 = this;
+            m0._vt2Position = vt2Position;
+            m0._v2NextMovePoint = vt2Position;
+
+            this._iSpeed = this._iMaxSpeed;
+            return m0;
+            //return new Monster0(vt2Position);
+
         }
-
-
-        #region BonusOffset
-        //tạo các biến lưu trư offset tương ứng cho từng frame
-        //hàm đọc file offset và lưu biến
-        //cập nhật lại hàm Draw
-        static List<Vector2[]> _vt2OffsetSprite;
-        static List<Vector2> _vt2BoundSprite = new List<Vector2>();//khung chứa sprite, width height
-        static string _strOffsetFilename = "MonsOffset.ini";
-
-        int iSpriteNonOffset;
-        //làm 2 chuyện:
-        //cập nhật non offset và cập nhật top left position frame, iwdth, height
-        void ChangeSpriteNonOffset()
-        {
-            if (_state == State.Died)
-            {
-                return;
-            }
-
-            int iSprite = _iFirstSprite + _iSprite;
-            iSpriteNonOffset = iSprite - iBaseSprite;
-            switch (_state)
-            {
-                case State.Moving:
-                    {
-                        iSpriteNonOffset -= nMovingSpriteOffset;
-                        break;
-                    }
-                case State.Attacked:
-                    {
-                        iSpriteNonOffset -= nAttackedSpriteOffset;
-                        break;
-                    }
-                case State.Dying:
-                    {
-                        iSpriteNonOffset -= nDyingSpriteOffset;
-                        break;
-                    }
-            }
-
-            if (_vt2BoundSprite != null &&
-                _vt2OffsetSprite != null)
-            {
-                _vt2CurrentPositionTopLeftOfFrame = _vt2Position
-                    + (-_vt2BoundSprite[(int)_state] / 2
-                    + _vt2OffsetSprite[(int)_state][iSpriteNonOffset]) * _fScale;
-
-                Texture2D[] imgSprites = ResourceManager._rsCreepSprites;
-
-                _iWidth = (int)( imgSprites[iSprite].Width * _fScale);
-                _iHeight = (int)(imgSprites[iSprite].Height * _fScale);
-            }
-        }
-        #endregion
     }
 }
        
