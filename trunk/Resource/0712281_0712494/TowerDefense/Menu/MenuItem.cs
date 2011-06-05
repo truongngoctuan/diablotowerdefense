@@ -47,8 +47,8 @@ namespace TowerDefense
 
         public static void LoadResource()
         {
-            _menuItemBG = ResourceManager._rsTexture2Ds[2];
-            _menuItemBG_Hovered = ResourceManager._rsTexture2Ds[3];
+            _menuItemBG = GameState.MainMenuGameState._rsTexture2Ds[2];
+            _menuItemBG_Hovered = GameState.MainMenuGameState._rsTexture2Ds[3];
             _font = ResourceManager._rsFonts[0];
             _iRadius = _menuItemBG.Width / 2;
         }
@@ -142,7 +142,7 @@ namespace TowerDefense
                     }
                 case MenuItemType.SubMenu:
                     {
-                        GlobalVar.glAnimatedMenu = _subMenu;
+                        GameState.MainMenuGameState.glAnimatedMenu = _subMenu;
                         break;
                     }
             }

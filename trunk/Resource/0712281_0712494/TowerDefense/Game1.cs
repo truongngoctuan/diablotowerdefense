@@ -25,12 +25,18 @@ namespace TowerDefense
         KeyboardState oldKeyboardState;
         MouseState oldMouseState;
         Vector2 lastPressedPosition;
-
-        Texture2D textureLogo;
-        Video introMovie;
-        float fIntroMovieScale;
+        
+        
         Texture2D cursorTexture;
         Vector2 vt2CursorPosition;
+
+        private GameState.GameState gsCurrentGameState = null;
+
+        public GameState.GameState CurrentGameState
+        {
+            get { return gsCurrentGameState; }
+            set { gsCurrentGameState = value; }
+        }
         
         public Game1()
         {
@@ -49,21 +55,17 @@ namespace TowerDefense
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            base.Initialize();
-
+            GlobalVar.glGame = this;
             GlobalVar.glGraphics = graphics;
+            GlobalVar.glContentManager = Content;
 
+            CurrentGameState = new GameState.IntroGameState();
+            CurrentGameState.Initialize();
+
+            base.Initialize();
 
             this.IsMouseVisible = false;
             vt2CursorPosition = new Vector2();
-            
-            MyAnimatedMenu.LoadResource();
-            MenuItem.LoadResource();
-
-            GlobalVar.glGame = this;
-            GlobalVar.glContentManager = Content;
-
-
 
             GlobalVar.glOptionScreen = new OptionScreen();
 
@@ -74,7 +76,7 @@ namespace TowerDefense
             OptionScreen.LockUnlockVolume();
 
 
-            GlobalVar.glIntroPlayer = new VideoPlayer();
+            
             GlobalVar.glViewport = new Vector2(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
             
             //GlobalVar.glMapSize = new Vector2(3000, 3000);
@@ -89,11 +91,10 @@ namespace TowerDefense
 
             AudioPlayer.LoadContent();            
 
-            if (introMovie.Width >= introMovie.Height)
-                fIntroMovieScale = GlobalVar.glViewport.X / introMovie.Width;
-            else
-                fIntroMovieScale = GlobalVar.glViewport.Y / introMovie.Height;
-            GlobalVar.SetGameStage(GameStage.MainMenu);
+
+            GlobalVar.SetGameStage(GameStage.Intro);
+
+            
         }
 
         /// <summary>
@@ -108,17 +109,19 @@ namespace TowerDefense
             
             // TODO: use this.Content to load your game content here
             cursorTexture = Content.Load<Texture2D>("cursor");
-            introMovie = Content.Load<Video>("introMovie");
-            textureLogo = Content.Load<Texture2D>("HighScore_background");
+            
+            
 
-            ResourceManager._rsTexture2Ds = new Texture2D[4];
-            ResourceManager._rsTexture2Ds[0] = Content.Load<Texture2D>(@"Menu\Background");
-            ResourceManager._rsTexture2Ds[1] = Content.Load<Texture2D>(@"Menu\CenterItem");
-            ResourceManager._rsTexture2Ds[2] = Content.Load<Texture2D>(@"Menu\MenuItem");
-            ResourceManager._rsTexture2Ds[3] = Content.Load<Texture2D>(@"Menu\MenuItem_Hovered");
+            //ResourceManager._rsTexture2Ds = new Texture2D[4];
+            //ResourceManager._rsTexture2Ds[0] = Content.Load<Texture2D>(@"Menu\Background");
+            //ResourceManager._rsTexture2Ds[1] = Content.Load<Texture2D>(@"Menu\CenterItem");
+            //ResourceManager._rsTexture2Ds[2] = Content.Load<Texture2D>(@"Menu\MenuItem");
+            //ResourceManager._rsTexture2Ds[3] = Content.Load<Texture2D>(@"Menu\MenuItem_Hovered");
             
             ResourceManager._rsFonts = new SpriteFont[1];
             ResourceManager._rsFonts[0] = Content.Load<SpriteFont>(@"Options\Folkard");
+
+            CurrentGameState.LoadContent(this.Content);
         }
 
         /// <summary>
@@ -137,7 +140,6 @@ namespace TowerDefense
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         /// 
 
-        bool m_bPlayIntro = false;
         bool m_bIsLeftButtonDown = false;
         protected override void Update(GameTime gameTime)
         {
@@ -155,48 +157,12 @@ namespace TowerDefense
             {
                 case GameStage.Intro:
                     {
-                        if (GlobalVar.iTimeTillIntroMovie <= 0)
-                        {
-                            if (GlobalVar.glIntroPlayer.State == MediaState.Stopped)
-                            {
-                                if (m_bPlayIntro == true)
-                                {
-                                    GlobalVar.glIntroPlayer.Stop();
-                                    GlobalVar.SetGameStage(GameStage.MainMenu);
-                                }
-                                GlobalVar.glIntroPlayer.IsLooped = false;
-                                GlobalVar.glIntroPlayer.Play(introMovie);
-                                m_bPlayIntro = true;
-                            }
-                            if (keyboardState.IsKeyDown(Keys.Space) == true && oldKeyboardState.IsKeyDown(Keys.Space) == false)
-                            {
-                                GlobalVar.glIntroPlayer.Stop();
-                                GlobalVar.SetGameStage(GameStage.MainMenu);
-                            }
-                        }
-                        else
-                        {
-                            GlobalVar.iTimeTillIntroMovie -= gameTime.ElapsedGameTime.Milliseconds;
-                        }
-
+                        CurrentGameState.Update(gameTime);
                         break;
                     }
                 case GameStage.MainMenu:
                     {
-                        if (keyboardState.IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyUp(Keys.Escape))
-                        {
-                            if (GlobalVar.glAnimatedMenu.IsRootMain())
-                            {
-                                this.Exit();
-                            }
-                            else
-                            {
-                                GlobalVar.glAnimatedMenu = GlobalVar.glAnimatedMenu.UpToParent();
-                            }
-                        }
-                        GlobalVar.glAnimatedMenu.Update(Mouse.GetState());
-
-                        //GlobalVar.glGameStage = GameStage.SinglePlayer;
+                        CurrentGameState.Update(gameTime);
                         break;
                     }
                 case GameStage.HighScore:
@@ -316,25 +282,13 @@ namespace TowerDefense
             {
                 case GameStage.Intro:
                     {
-                        if (GlobalVar.iTimeTillIntroMovie <= 0)
-                        {
-                            if (GlobalVar.glIntroPlayer.State != MediaState.Stopped)
-                            {
-                                spriteBatch.Draw(GlobalVar.glIntroPlayer.GetTexture(), new Vector2(GlobalVar.glViewport.X / 2, GlobalVar.glViewport.Y / 2), null, Color.White, 0.0f, new Vector2(introMovie.Width / 2, introMovie.Height / 2), fIntroMovieScale, SpriteEffects.None, 1.0f);
-                            }
-                        }
-                        else
-                        {
-                            spriteBatch.Draw(textureLogo, new Rectangle(0, 0, (int)GlobalVar.glViewport.X, (int)GlobalVar.glViewport.Y), Color.White);
-                        }
+                        CurrentGameState.Draw(gameTime, spriteBatch);
                         break;
                     }
                 case GameStage.MainMenu:
                     {
-                        spriteBatch.Draw(ResourceManager._rsTexture2Ds[0],
-                                new Rectangle(0, 0, (int)GlobalVar.glViewport.X, (int)GlobalVar.glViewport.Y),
-                                Color.White);
-                        GlobalVar.glAnimatedMenu.Draw(spriteBatch);                        
+                        CurrentGameState.Draw(gameTime, spriteBatch);
+                   
                         break;
                     }
                 case GameStage.HighScore:

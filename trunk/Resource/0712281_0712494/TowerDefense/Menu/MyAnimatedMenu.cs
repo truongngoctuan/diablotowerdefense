@@ -113,7 +113,7 @@ namespace TowerDefense
 
         public static void LoadResource()
         {
-            _imgCenterItem = ResourceManager._rsTexture2Ds[1];
+            _imgCenterItem = GameState.MainMenuGameState._rsTexture2Ds[1];
         }
 
         public void Initialize()

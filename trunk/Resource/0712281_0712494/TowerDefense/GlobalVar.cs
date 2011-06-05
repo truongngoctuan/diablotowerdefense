@@ -27,7 +27,7 @@ namespace TowerDefense
     {
         public static GameStage glGameStage;
         public static Vector2 glViewport;
-        public static MyAnimatedMenu glAnimatedMenu;
+        //public static MyAnimatedMenu glAnimatedMenu;
         public static LoadScreen glLoadScreen;
         public static HighScoreScreen glHighScoreScreen;
 
@@ -39,9 +39,9 @@ namespace TowerDefense
         public static StageManager glStageManager;
         public static WorldSpace glWorldSpace;
         public static UnitManager glUnitManager;
-        public static VideoPlayer glIntroPlayer;
-        public static int iLogoTime = 2500;
-        public static int iTimeTillIntroMovie;
+        //public static VideoPlayer glIntroPlayer;
+        //public static int iLogoTime = 2500;
+        //public static int iTimeTillIntroMovie;
 
         public static ContentManager glContentManager;
         public static Vector2 glRootCoordinate;
@@ -207,13 +207,14 @@ namespace TowerDefense
             {
                 case GameStage.Intro:
                     {
-                        iTimeTillIntroMovie = iLogoTime;
+                        //iTimeTillIntroMovie = iLogoTime;
                         break;
                     }
                 case GameStage.MainMenu:
                     {
+                        glGame.CurrentGameState.ChangeGameState(ref glGame);
                         AudioPlayer.PlayBackgroundMusic();
-                        GlobalVar.glAnimatedMenu = new MyAnimatedMenu("xmlData.txt");
+                        
                         break;
                     }
                 case GameStage.HighScore:

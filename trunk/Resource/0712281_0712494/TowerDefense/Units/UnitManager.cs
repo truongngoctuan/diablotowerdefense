@@ -101,7 +101,10 @@ namespace TowerDefense
                         }
                 }
             }
-            LoadCreepResource();
+            //LoadCreepResource();
+
+            ResourceManager._rsCreepSprites = new Texture2D[ResourceManager.nCreepSprites];
+            GlobalVar.glLoadScreen.enumerator = GlobalVar.glLoadScreen.loader.LoadCreepResource(this._prototypeUnits);
         }
 
         public void LoadBuildings(string strBuildingsFile)
@@ -198,11 +201,11 @@ namespace TowerDefense
             }
         }
 
-        public void LoadCreepResource()
-        {
-            ResourceManager._rsCreepSprites = new Texture2D[ResourceManager.nCreepSprites];
-            GlobalVar.glLoadScreen.enumerator = GlobalVar.glLoadScreen.loader.LoadCreepResource(this._prototypeUnits);
-        }
+        //public void LoadCreepResource()
+        //{
+        //    ResourceManager._rsCreepSprites = new Texture2D[ResourceManager.nCreepSprites];
+        //    GlobalVar.glLoadScreen.enumerator = GlobalVar.glLoadScreen.loader.LoadCreepResource(this._prototypeUnits);
+        //}
 
         //public Unit GetUnit(string strUnitName)
         //{
