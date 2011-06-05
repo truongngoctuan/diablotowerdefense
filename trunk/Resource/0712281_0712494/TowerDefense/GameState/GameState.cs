@@ -10,7 +10,8 @@ namespace TowerDefense.GameState
 {
     public abstract class GameState
     {
-        public abstract void ChangeGameState(ref Game1 context);
+        public abstract void NextState(ref Game1 context);
+        public abstract void PreviousState(ref Game1 context);
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
         public abstract void Initialize();

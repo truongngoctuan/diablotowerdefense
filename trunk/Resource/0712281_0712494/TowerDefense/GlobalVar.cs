@@ -31,7 +31,7 @@ namespace TowerDefense
         public static LoadScreen glLoadScreen;
         public static HighScoreScreen glHighScoreScreen;
 
-        public static OptionScreen glOptionScreen;
+//        public static OptionScreen glOptionScreen;
         public static GraphicsDeviceManager glGraphics;
 
 
@@ -212,7 +212,7 @@ namespace TowerDefense
                     }
                 case GameStage.MainMenu:
                     {
-                        glGame.CurrentGameState.ChangeGameState(ref glGame);
+                        glGame.CurrentGameState.NextState(ref glGame);
                         AudioPlayer.PlayBackgroundMusic();
                         
                         break;
@@ -241,9 +241,8 @@ namespace TowerDefense
                     }
                 case GameStage.Options:
                     {
-                        //glOptionScreen = new OptionScreen();
-                        glOptionScreen.LoadResource();
-                        glOptionScreen.LoadContent();
+                        glGame.CurrentGameState.NextState(ref glGame);
+
                         break;
                     }
 

@@ -26,13 +26,17 @@ namespace TowerDefense.GameState
         int iTimeTillIntroMovie;
 
         KeyboardState oldKeyboardState;
-        public override void ChangeGameState(ref Game1 context)
+        public override void NextState(ref Game1 context)
         {
             context.CurrentGameState.Clean();
             //intro to mainmenu
             context.CurrentGameState = new MainMenuGameState();
             context.CurrentGameState.Initialize();
             context.CurrentGameState.LoadContent(context.Content);
+        }
+
+        public override void PreviousState(ref Game1 context)
+        {
         }
 
         public override void Update(GameTime gameTime)

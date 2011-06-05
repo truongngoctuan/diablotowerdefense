@@ -91,6 +91,7 @@
     <Compile Include="GameState\GameState.cs" />
     <Compile Include="GameState\IntroGameState.cs" />
     <Compile Include="GameState\MainMenuGameState.cs" />
+    <Compile Include="GameState\OptionGameState.cs" />
     <Compile Include="HighScoreScreen.cs" />
     <Compile Include="LoadScreen.cs" />
     <Compile Include="Maps\BackgroundMapUnit.cs" />
