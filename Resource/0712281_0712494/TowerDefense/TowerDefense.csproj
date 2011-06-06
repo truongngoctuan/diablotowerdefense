@@ -98,7 +98,12 @@
     <Compile Include="Maps\MapResourceManager.cs" />
     <Compile Include="AudioPlayer.cs" />
     <Compile Include="Maps\ObjectMapUnit.cs" />
-    <Compile Include="OptionScreen.cs" />
+    <Compile Include="Option\CustomControl.cs" />
+    <Compile Include="Option\ImageButton.cs" />
+    <Compile Include="Option\OptionScreen.cs" />
+    <Compile Include="Option\OptionVariables.cs" />
+    <Compile Include="Option\RadioButton.cs" />
+    <Compile Include="Option\VolumeButton.cs" />
     <Compile Include="ParticleSystemManager.cs" />
     <Compile Include="Units\Abstract Units\AirCreep.cs" />
     <Compile Include="Units\BulletParticleSystem.cs" />
@@ -189,7 +194,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="option.config" />
     <Content Include="GameIcon.ico" />
     <Content Include="Stages\Stage01\Buildings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

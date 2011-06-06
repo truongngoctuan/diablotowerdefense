@@ -49,6 +49,8 @@ namespace TowerDefense
         public static Vector2 glIconSize;
         public static Vector2 glIconPosition;
 
+        public static Option.OptionVariables optionVariables = new TowerDefense.Option.OptionVariables();
+
         #region maps
         public static Random glRandom = new Random(DateTime.Now.Millisecond);
         public static Vector2 glvtCellSize;
