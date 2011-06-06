@@ -47,7 +47,7 @@ namespace TowerDefense.GameState
 
         public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            glOptionScreen.LoadResource();
+            glOptionScreen.LoadResource(content);
             glOptionScreen.LoadContent();
         }
 

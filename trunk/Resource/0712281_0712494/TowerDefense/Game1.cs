@@ -62,6 +62,11 @@ namespace TowerDefense
             CurrentGameState = new GameState.IntroGameState();
             CurrentGameState.Initialize();
 
+            GlobalVar.optionVariables.ReadFromFile();
+            GlobalVar.optionVariables.ToggleFullScreen();
+            GlobalVar.optionVariables.MuteSound();
+            GlobalVar.optionVariables.ChangeVolume();
+
             base.Initialize();
 
             this.IsMouseVisible = false;
@@ -69,11 +74,11 @@ namespace TowerDefense
 
             
 
-            OptionScreen.ReadFromFile();
-            OptionScreen.ToggleFullScreen();
-            OptionScreen.MuteSound();
-            OptionScreen.ChangeVolume();
-            OptionScreen.LockUnlockVolume();
+            //OptionScreen.ReadFromFile();
+            //OptionScreen.ToggleFullScreen();
+            //OptionScreen.MuteSound();
+            //OptionScreen.ChangeVolume();
+            //OptionScreen.LockUnlockVolume();
 
 
             
