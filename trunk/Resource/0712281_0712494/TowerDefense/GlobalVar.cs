@@ -49,7 +49,7 @@ namespace TowerDefense
         public static Vector2 glIconSize;
         public static Vector2 glIconPosition;
 
-        public static Option.OptionVariables optionVariables = new TowerDefense.Option.OptionVariables();
+        public static Option.OptionVariablesObserver optionVariables = new TowerDefense.Option.OptionVariablesObserver();
 
         #region maps
         public static Random glRandom = new Random(DateTime.Now.Millisecond);

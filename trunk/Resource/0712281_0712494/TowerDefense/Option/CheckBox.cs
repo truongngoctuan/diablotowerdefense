@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.Option
 {
-    public class RadioButton: CustomControl
+    public class CheckBox: CustomControl
     {
-        public enum OptionRadioState { Normal, Checked };
+        public enum OptionCheckBoxState { Normal, Checked };
 
         public Texture2D m_ttradio;
         public Texture2D m_ttradioChecked;
@@ -24,13 +24,19 @@ namespace TowerDefense.Option
             set { _strText = value; }
         }
 
-        public OptionRadioState radioState;
-        bool m_bIsRadioChangeState = false;
+        bool _bsChecked;
 
-        public RadioButton()
+        public bool Checked
         {
-            //LoadResource();
-            Height = 25;
+            get { return _bsChecked; }
+            set { _bsChecked = value; }
+        }
+        public CheckBox(bool bIsChecked, int iWidth, int iHeight, string strText)
+        {
+            Checked = bIsChecked;
+            Width = iWidth;
+            Height = iHeight;
+            Text = strText;
         }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState OldMouseState, Microsoft.Xna.Framework.Input.KeyboardState oldKeyboardState)
@@ -46,15 +52,9 @@ namespace TowerDefense.Option
                     if (OldMouseState.LeftButton == ButtonState.Pressed &&
                         ms.LeftButton == ButtonState.Released)
                     {
-                        m_bIsRadioChangeState = true;
-                        if (radioState == OptionRadioState.Normal)
-                        {
-                            radioState = OptionRadioState.Checked;
-                        }
-                        else
-                        {
-                            radioState = OptionRadioState.Normal;
-                        }
+                        Checked = !Checked;
+                        Notify();
+                        //GlobalVar.optionVariables.IsFullScreen = Checked;
                     }
                 }
             }
@@ -64,18 +64,15 @@ namespace TowerDefense.Option
         {
 
             spriteBatch.DrawString(spFontFokard, _strText, Position + new Vector2(25, 0), Color.YellowGreen);
-            switch (radioState)
-            {
-                case OptionRadioState.Normal:
-                    {
-                        spriteBatch.Draw(m_ttradio, Position, Color.White);
-                        break;
-                    }
-                case OptionRadioState.Checked:
-                    {
+            if (Checked)
+                {
                         spriteBatch.Draw(m_ttradioChecked, Position, Color.White);
-                        break;
-                    }
+                }
+            else
+            {
+
+                        spriteBatch.Draw(m_ttradio, Position, Color.White);
+  
             }
         }
 

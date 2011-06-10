@@ -50,17 +50,18 @@ namespace TowerDefense.Option
                     if (OldMouseState.LeftButton == ButtonState.Pressed &&
                         ms.LeftButton == ButtonState.Released)
                     {
-                        //cập nhật các giá trị - ghi lại vào file, fullscreen -sound...
-                        //if (m_bIsRadioChangeState == true)
-                        {
-                            GlobalVar.optionVariables.ToggleFullScreen();
-                            //LoadContent();
+                        ////cập nhật các giá trị - ghi lại vào file, fullscreen -sound...
+                        ////if (m_bIsRadioChangeState == true)
+                        //{
+                        //    GlobalVar.optionVariables.ToggleFullScreen();
+                        //    //LoadContent();
 
-                            GlobalVar.optionVariables.MuteSound();
-                            GlobalVar.optionVariables.ChangeVolume();
-                            //LockUnlockVolume();
-                        }
-                        GlobalVar.optionVariables.WriteToFile();
+                        //    GlobalVar.optionVariables.MuteSound();
+                        //    GlobalVar.optionVariables.ChangeVolume();
+                        //    //LockUnlockVolume();
+                        //}
+                        //GlobalVar.optionVariables.WriteToFile();
+                        Active();
                     }
                 }
             }

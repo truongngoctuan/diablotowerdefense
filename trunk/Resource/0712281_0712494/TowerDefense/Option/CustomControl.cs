@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TowerDefense.Option
 {
-    public abstract class CustomControl
+    public abstract class CustomControl:AbstractSubject
     {
         protected Vector2 _vt2Position;
 

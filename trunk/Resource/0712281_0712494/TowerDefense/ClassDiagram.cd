@@ -3,14 +3,14 @@
   <Class Name="TowerDefense.Game1" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>YEQCEEAEIAAEAwAAAAAAACAAAAAAAAgABAAAAAAIAAQ=</HashCode>
+      <HashCode>YAQCEEAAIAAAAwAAAAQAACAAAAAAIAgABAAAAAAAAAQ=</HashCode>
       <FileName>Game1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TowerDefense.GlobalVar" Collapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>DgAAgEAAIQEFAACACiQAAIQSAmJGAAAQAAABBAAAAcA=</HashCode>
+      <HashCode>DgAAgAAAIQEFAACAAiQAAAQCAmJGAAAAAAAhBAAAAcA=</HashCode>
       <FileName>GlobalVar.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="TowerDefense.ResourceManager" Collapsed="true">
     <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAIAAAAAgAAAAAAQAAAgAAAAAAAACAAAAEEAIA=</HashCode>
+      <HashCode>AAAACAAAAAAAAgAAAAAAQAAAgAAAAAAAACAAAAEEAIA=</HashCode>
       <FileName>ResourceManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -132,7 +132,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>gQAAAABCAQBAJAAAAGIQChAAAAAAAAAgAAAABCSAAAA=</HashCode>
+      <HashCode>gQAAAABCARBAJAAAAGIQCgAAAAAAAAAgAAAABCSAAAA=</HashCode>
       <FileName>Units\Abstract Units\Creep.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -146,7 +146,7 @@
   <Class Name="TowerDefense.GroundCreep">
     <Position X="19" Y="15.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAYAAAAAEAAgAAAAIBAAAwbAIAAAAAQAAAABAgICA=</HashCode>
       <FileName>Units\Abstract Units\GroundCreep.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -199,18 +199,74 @@
       <FileName>WorldSpace.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TowerDefense.Angel">
-    <Position X="20.75" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQBAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
-      <FileName>Units\Real Units\Angel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TowerDefense.Monster0">
     <Position X="21" Y="15.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAxBYAAAAAMABQAAAEABIAAwbAIABSAAQAAAABAgIDA=</HashCode>
+      <HashCode>AAQBAAAAAAAABQAAAAAAAAAAAAAAASAAAAAAAAAAABA=</HashCode>
       <FileName>Units\Real Units\Monster0.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.VolumeButton" Collapsed="true">
+    <Position X="7" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAQAAwAAAAAAAAAARAQCAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Option\VolumeButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.CustomControl">
+    <Position X="5.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAQBAAAAgAgAAAAAEAAAAAIAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Option\CustomControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.ImageButton" Collapsed="true">
+    <Position X="7.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAEAAAAAAgAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>Option\ImageButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.OptionVariablesObserver" Collapsed="true">
+    <Position X="11.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAIAAQAAAAAIAAAAAAAAQAAEAAAAAAAAAAI=</HashCode>
+      <FileName>Option\OptionVariablesObserver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.RadioButton" Collapsed="true">
+    <Position X="7.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAgAAAAAIAAAAAAAKAABAAAAACFAAAAA=</HashCode>
+      <FileName>Option\RadioButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.OptionScreen" Collapsed="true">
+    <Position X="10" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwBFACAAEAAAgAAAAAAAAwAAAAAAAAAAAAAQBAACAQ=</HashCode>
+      <FileName>Option\OptionScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.AbstractSubject">
+    <Position X="2.5" Y="13.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="TowerDefense.Option.AbstractSubject.ActiveFunction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Option\AbstractSubject.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAABAAAAJgAAAAAAAAAAA=</HashCode>
+      <FileName>Option\AbstractSubject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.AbstractObserver" Collapsed="true">
+    <Position X="11" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Option\AbstractObserver.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="GameStage" Collapsed="true">

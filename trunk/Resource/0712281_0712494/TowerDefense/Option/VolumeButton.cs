@@ -15,11 +15,17 @@ namespace TowerDefense.Option
 
         Vector2 m_vt2VolumeButtonPosition;
 
-        public float fVolume = 1;
+        private float fVolume = 1;
+
+        public float Volume
+        {
+            get { return fVolume; }
+            set { fVolume = value; }
+        }
 
         public bool bIsEnable = true;
 
-        public TowerDefense.Option.RadioButton.OptionRadioState radioState;
+        public TowerDefense.Option.CheckBox.OptionCheckBoxState radioState;
 
         public VolumeButton()
         {
