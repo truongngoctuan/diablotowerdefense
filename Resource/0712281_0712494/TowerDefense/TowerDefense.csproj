@@ -98,11 +98,13 @@
     <Compile Include="Maps\MapResourceManager.cs" />
     <Compile Include="AudioPlayer.cs" />
     <Compile Include="Maps\ObjectMapUnit.cs" />
+    <Compile Include="Option\AbstractObserver.cs" />
+    <Compile Include="Option\AbstractSubject.cs" />
     <Compile Include="Option\CustomControl.cs" />
     <Compile Include="Option\ImageButton.cs" />
     <Compile Include="Option\OptionScreen.cs" />
-    <Compile Include="Option\OptionVariables.cs" />
-    <Compile Include="Option\RadioButton.cs" />
+    <Compile Include="Option\OptionVariablesObserver.cs" />
+    <Compile Include="Option\CheckBox.cs" />
     <Compile Include="Option\VolumeButton.cs" />
     <Compile Include="ParticleSystemManager.cs" />
     <Compile Include="Units\Abstract Units\AirCreep.cs" />
@@ -194,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <Content Include="option.conf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GameIcon.ico" />
     <Content Include="Stages\Stage01\Buildings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -14,6 +14,11 @@ namespace TowerDefense.GameState
 
         public override void NextState(ref Game1 context)
         {
+            context.CurrentGameState.Clean();
+            //intro to mainmenu
+            context.CurrentGameState = new MainMenuGameState();
+            context.CurrentGameState.Initialize();
+            context.CurrentGameState.LoadContent(context.Content);
         }
 
         public override void PreviousState(ref Game1 context)
@@ -25,10 +30,10 @@ namespace TowerDefense.GameState
             KeyboardState keyboardState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
 
-            if (keyboardState.IsKeyDown(Keys.Escape) == true && oldKeyboardState.IsKeyDown(Keys.Escape) == false)
-            {
-                GlobalVar.SetGameStage(GameStage.MainMenu);
-            }
+            //if (keyboardState.IsKeyDown(Keys.Escape) == true && oldKeyboardState.IsKeyDown(Keys.Escape) == false)
+            //{
+            //    GlobalVar.SetGameStage(GameStage.MainMenu);
+            //}
             glOptionScreen.Update(oldMouseState, oldKeyboardState);
 
             oldKeyboardState = keyboardState;

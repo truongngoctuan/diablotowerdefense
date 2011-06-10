@@ -59,8 +59,16 @@ namespace TowerDefense
             GlobalVar.glGraphics = graphics;
             GlobalVar.glContentManager = Content;
 
-            CurrentGameState = new GameState.IntroGameState();
+            CurrentGameState = new GameState.MainMenuGameState();
             CurrentGameState.Initialize();
+
+            GlobalVar.glGraphics.PreferredBackBufferWidth = 1366;
+            GlobalVar.glGraphics.PreferredBackBufferHeight = 768;
+
+            GlobalVar.glViewport.X = 1366;
+            GlobalVar.glViewport.Y = 768;
+
+            GlobalVar.glGraphics.ApplyChanges();
 
             GlobalVar.optionVariables.ReadFromFile();
             GlobalVar.optionVariables.ToggleFullScreen();
