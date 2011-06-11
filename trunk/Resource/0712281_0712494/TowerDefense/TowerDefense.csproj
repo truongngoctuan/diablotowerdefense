@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseGameTemplate.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="GameState\GameState.cs" />
     <Compile Include="GameState\IntroGameState.cs" />
@@ -98,7 +99,12 @@
     <Compile Include="Maps\MapResourceManager.cs" />
     <Compile Include="AudioPlayer.cs" />
     <Compile Include="Maps\ObjectMapUnit.cs" />
-    <Compile Include="Option\AbstractObserver.cs" />
+    <Compile Include="Base\AbstractSubjectForm.cs" />
+    <Compile Include="Menu\MenuItemBaseNode.cs" />
+    <Compile Include="Menu\MenuItemLeaf.cs" />
+    <Compile Include="Menu\MenuItemNode.cs" />
+    <Compile Include="Base\AbstractObserver.cs" />
+    <Compile Include="Menu\UltiMenuItemNode.cs" />
     <Compile Include="Option\AbstractSubject.cs" />
     <Compile Include="Option\CustomControl.cs" />
     <Compile Include="Option\ImageButton.cs" />
@@ -123,7 +129,6 @@
     <Compile Include="Units\Abstract Units\InactiveUnit.cs" />
     <Compile Include="Units\Abstract Units\MainUnit.cs" />
     <Compile Include="Maps\Map.cs" />
-    <Compile Include="Menu\MenuItem.cs" />
     <Compile Include="Units\Real Units\Monster0.cs" />
     <Compile Include="Menu\MyAnimatedMenu.cs" />
     <Compile Include="Program.cs" />

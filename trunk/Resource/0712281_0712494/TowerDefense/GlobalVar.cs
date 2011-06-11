@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 public enum GameStage { Intro, MainMenu, HighScore, Options, SinglePlayer, Multiplayers, InGame, Loading};
-public enum MyAnimatedMenuState { Opening, OpeningMenuItems, Opened, Closing, Closed };
+public enum MenuAnimationState { Opening, OpeningMenuItems, Opened, Closing, Closed };
 public enum MenuItemType { None, Task, SubMenu };
 public enum MenuItemState { Hovered, Pressed, Released, Normal };
 
