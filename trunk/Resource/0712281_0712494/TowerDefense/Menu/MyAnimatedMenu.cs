@@ -16,6 +16,11 @@ using TowerDefense.Menu;
 
 namespace TowerDefense
 {
+    /// <summary>
+    /// control animation of menu item
+    /// depend on state of main menu such as: opening, opened, losing, closed
+    /// future: convert this state to classes by using state pattern, but, this will make this class more complex
+    /// </summary>
     public class MyAnimatedMenu : AbstractSubjectForm, Base.BaseGameTemplate
     {
         #region NewItem

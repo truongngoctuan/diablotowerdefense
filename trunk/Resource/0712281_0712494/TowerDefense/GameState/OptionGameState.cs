@@ -12,7 +12,7 @@ namespace TowerDefense.GameState
         MouseState oldMouseState;
         public OptionScreen glOptionScreen;
 
-        public override void NextState(ref Game1 context)
+        public void NextState(ref Game1 context)
         {
             context.CurrentGameState.Clean();
             //intro to mainmenu
@@ -21,11 +21,11 @@ namespace TowerDefense.GameState
             context.CurrentGameState.LoadContent(context.Content);
         }
 
-        public override void PreviousState(ref Game1 context)
+        public void PreviousState(ref Game1 context)
         {
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
@@ -40,23 +40,23 @@ namespace TowerDefense.GameState
             oldMouseState = mouseState;
         }
 
-        public override void Draw(Microsoft.Xna.Framework.GameTime gameTime, Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public void Draw(Microsoft.Xna.Framework.GameTime gameTime, Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             glOptionScreen.Draw(spriteBatch);
         }
 
-        public override void Initialize()
+        public void Initialize()
         {
             glOptionScreen = new OptionScreen();
         }
 
-        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        public void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
             glOptionScreen.LoadResource(content);
             glOptionScreen.LoadContent();
         }
 
-        public override void Clean()
+        public void Clean()
         {
         }
     }

@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TowerDefense.GameState
 {
-    public abstract class GameState
+    public interface GameState:Base.BaseGameTemplate
     {
-        public abstract void NextState(ref Game1 context);
-        public abstract void PreviousState(ref Game1 context);
-        public abstract void Update(GameTime gameTime);
-        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
-        public abstract void Initialize();
-        public abstract void LoadContent(ContentManager content);
-        public abstract void Clean();
+        void NextState(ref Game1 context);
+        void PreviousState(ref Game1 context);
+        //void Update(GameTime gameTime);
+        //void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+        //void Initialize();
+        //void LoadContent(ContentManager content);
+        void Clean();
     }
 }
