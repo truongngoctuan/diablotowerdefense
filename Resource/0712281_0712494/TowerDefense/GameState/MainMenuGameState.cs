@@ -15,8 +15,7 @@ namespace TowerDefense.GameState
     public class MainMenuGameState: GameState
     {
         KeyboardState oldKeyboardState;
-        public static MyAnimatedMenu glAnimatedMenu;
-        public static Texture2D[] _rsTexture2Ds;
+        public MyAnimatedMenu glAnimatedMenu;
 
         public override void NextState(ref Game1 context)
         {
@@ -67,35 +66,28 @@ namespace TowerDefense.GameState
                     glAnimatedMenu = glAnimatedMenu.UpToParent();
                 }
             }
-            glAnimatedMenu.Update(Mouse.GetState());
+            glAnimatedMenu.Update(gameTime);
 
             oldKeyboardState = keyboardState;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_rsTexture2Ds[0],
-                                new Rectangle(0, 0, (int)GlobalVar.glViewport.X, (int)GlobalVar.glViewport.Y),
-                                Color.White);
-            glAnimatedMenu.Draw(spriteBatch);  
+            glAnimatedMenu.Draw(gameTime, spriteBatch);  
         }
 
         public override void Initialize()
         {
-            _rsTexture2Ds = new Texture2D[4];
+            glAnimatedMenu = new MyAnimatedMenu("xmlData.txt");
+            glAnimatedMenu.Initialize();
         }
 
         public override void LoadContent(ContentManager content)
         {
-            glAnimatedMenu = new MyAnimatedMenu("xmlData.txt");
 
-            _rsTexture2Ds[0] = content.Load<Texture2D>(@"Menu\Background");
-            _rsTexture2Ds[1] = content.Load<Texture2D>(@"Menu\CenterItem");
-            _rsTexture2Ds[2] = content.Load<Texture2D>(@"Menu\MenuItem");
-            _rsTexture2Ds[3] = content.Load<Texture2D>(@"Menu\MenuItem_Hovered");
 
-            MyAnimatedMenu.LoadResource();
-            MenuItem.LoadResource();
+            glAnimatedMenu.LoadContent(content);
+            //MenuItem.LoadResource();
         }
 
         public override void Clean()

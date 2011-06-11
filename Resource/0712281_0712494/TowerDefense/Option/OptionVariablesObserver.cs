@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using Microsoft.Xna.Framework;
 
 namespace TowerDefense.Option
 {
@@ -130,9 +131,9 @@ namespace TowerDefense.Option
         }
         #endregion
 
-        public override void Update(string strCommand)
-        {
-        }
+        //public override void Update(string strCommand)
+        //{
+        //}
 
         //public void DoUpdateOption()
         //{
@@ -140,5 +141,10 @@ namespace TowerDefense.Option
         //    MuteSound();
         //    ChangeVolume();
         //}
+
+        public override void Update(GameTime gametime)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }
