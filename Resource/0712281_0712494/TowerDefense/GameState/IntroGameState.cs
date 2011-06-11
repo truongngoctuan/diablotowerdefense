@@ -26,7 +26,7 @@ namespace TowerDefense.GameState
         int iTimeTillIntroMovie;
 
         KeyboardState oldKeyboardState;
-        public override void NextState(ref Game1 context)
+        public void NextState(ref Game1 context)
         {
             context.CurrentGameState.Clean();
             //intro to mainmenu
@@ -35,11 +35,11 @@ namespace TowerDefense.GameState
             context.CurrentGameState.LoadContent(context.Content);
         }
 
-        public override void PreviousState(ref Game1 context)
+        public void PreviousState(ref Game1 context)
         {
         }
 
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
 
@@ -71,7 +71,7 @@ namespace TowerDefense.GameState
             oldKeyboardState = keyboardState;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
 
             if (iTimeTillIntroMovie <= 0)
@@ -87,7 +87,7 @@ namespace TowerDefense.GameState
             }
         }
 
-        public override void Initialize()
+        public void Initialize()
         {
             m_bPlayIntro = false;
             glIntroPlayer = new VideoPlayer();
@@ -97,7 +97,7 @@ namespace TowerDefense.GameState
             glViewport = new Vector2(GlobalVar.glGraphics.GraphicsDevice.Viewport.Width, GlobalVar.glGraphics.GraphicsDevice.Viewport.Height);
         }
 
-        public override void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content)
         {
             introMovie = content.Load<Video>("introMovie");
             textureLogo = content.Load<Texture2D>("HighScore_background");
@@ -111,7 +111,7 @@ namespace TowerDefense.GameState
             m_bPlayIntro = true;
         }
 
-        public override void Clean()
+        public void Clean()
         {
             introMovie = null;
             textureLogo = null;

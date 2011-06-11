@@ -17,7 +17,7 @@ namespace TowerDefense.GameState
         KeyboardState oldKeyboardState;
         public MyAnimatedMenu glAnimatedMenu;
 
-        public override void NextState(ref Game1 context)
+        public void NextState(ref Game1 context)
         {
             //intro to mainmenu
         }
@@ -47,11 +47,11 @@ namespace TowerDefense.GameState
 
         }
 
-        public override void PreviousState(ref Game1 context)
+        public void PreviousState(ref Game1 context)
         {
         }
 
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
 
@@ -71,26 +71,24 @@ namespace TowerDefense.GameState
             oldKeyboardState = keyboardState;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             glAnimatedMenu.Draw(gameTime, spriteBatch);  
         }
 
-        public override void Initialize()
+        public void Initialize()
         {
             glAnimatedMenu = new MyAnimatedMenu("xmlData.txt");
             glAnimatedMenu.Initialize();
         }
 
-        public override void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content)
         {
-
-
             glAnimatedMenu.LoadContent(content);
             //MenuItem.LoadResource();
         }
 
-        public override void Clean()
+        public void Clean()
         {
             //throw new NotImplementedException();
         }
