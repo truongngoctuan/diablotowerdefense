@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TowerDefense.Menu.MenuItemNode">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="TowerDefense.Menu.MenuItemBaseNode" ManuallyRouted="true">
+      <Path>
+        <Point X="6.75" Y="2.472" />
+        <Point X="4.75" Y="2.472" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\MenuItemNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Menu.MenuItemLeaf" Collapsed="true">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="TowerDefense.Menu.MenuItemBaseNode" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="6.75" Y="3.562" />
+        <Point X="5.805" Y="3.562" />
+        <Point X="5.805" Y="4.596" />
+        <Point X="4.75" Y="4.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\MenuItemLeaf.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Menu.MenuItemBaseNode">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EARAwBAZBBgQEwAgACAAYFQQAACIgCjAACgggAAAACY=</HashCode>
+      <FileName>Menu\MenuItemBaseNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.MyAnimatedMenu">
+    <Position X="10" Y="1.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAQAQBAJAAAQEwABAAAAAJRAAACIAICAAAAQAEAQAAY=</HashCode>
+      <FileName>Menu\MyAnimatedMenu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

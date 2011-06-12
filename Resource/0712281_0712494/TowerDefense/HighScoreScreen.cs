@@ -8,6 +8,9 @@ using System.Xml;
 
 namespace TowerDefense
 {
+    /// <summary>
+    /// ease like other screen, so i dont do this screen any more
+    /// </summary>
     public class HighScoreScreen
     {
         SpriteFont spriteFont;

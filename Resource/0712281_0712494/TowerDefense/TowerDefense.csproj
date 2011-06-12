@@ -91,6 +91,7 @@
     <Compile Include="Debug.cs" />
     <Compile Include="GameState\GameState.cs" />
     <Compile Include="GameState\IntroGameState.cs" />
+    <Compile Include="GameState\LoadingState.cs" />
     <Compile Include="GameState\MainMenuGameState.cs" />
     <Compile Include="GameState\OptionGameState.cs" />
     <Compile Include="HighScoreScreen.cs" />
@@ -201,6 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="GameState\gameState.cd" />
+    <None Include="Menu\menuScreen.cd" />
+    <None Include="Option\option.cd" />
     <Content Include="option.conf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

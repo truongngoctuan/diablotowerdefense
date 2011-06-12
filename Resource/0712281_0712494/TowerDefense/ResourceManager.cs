@@ -42,9 +42,5 @@ namespace TowerDefense
             Color color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
             spriteBatch.Draw(texture, vt2Position, null, color, 0.0f, vt2Center, _fScale, SpriteEffects.None, _fDepth);
         }
-
-        //public static void LoadMapTiles()
-        //{
-        //}
     }
 }

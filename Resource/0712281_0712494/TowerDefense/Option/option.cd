@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TowerDefense.Option.AbstractSubject" Collapsed="true">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAABAAAAJgAAAAAAAACAA=</HashCode>
+      <FileName>Option\AbstractSubject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.VolumeButton" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAQAAwAAAAAAAAAARAQCAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Option\VolumeButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.CheckBox" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAQgCAAAAAAAAAAAAIAABAAAAACFAAAAA=</HashCode>
+      <FileName>Option\CheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.CustomControl" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAQBAAAAgAgAAAAAEAAAAAIAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Option\CustomControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.ImageButton" Collapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAEAAAAAAgAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>Option\ImageButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Option.OptionVariablesObserver">
+    <Position X="11.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAABCAAAIAAQAAAAAIAAAAAAAAQAAEAAIACAAAAAI=</HashCode>
+      <FileName>Option\OptionVariablesObserver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.OptionScreen">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBEACAAEAAAgAAAAAAAAwAAAEAAAAAAAAABBAACAQ=</HashCode>
+      <FileName>Option\OptionScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

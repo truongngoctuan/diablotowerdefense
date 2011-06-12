@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace TowerDefense
 {
-    public class LoadScreen
+    public class LoadScreen:Base.BaseGameTemplate
     {
         public Loader loader;
         public IEnumerator<float> enumerator;
@@ -51,6 +51,30 @@ namespace TowerDefense
             spriteBatch.Draw(progressBar, vt2ProgressBarPosition, null, Color.White, 0.0f, new Vector2(progressBar.Width / 2, progressBar.Height / 2), 1.0f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(flowBar, vt2FlowBarPosition, new Rectangle(0, 0, (int)vt2FlowBarSize.X, (int)vt2FlowBarSize.Y), Color.White);
         }
+
+        #region BaseGameTemplate Members
+
+        public void Initialize()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            //throw new NotImplementedException();
+        }
+
+        #endregion
     }
 
     public class Loader : IEnumerable<float>
